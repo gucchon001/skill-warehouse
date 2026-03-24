@@ -1,0 +1,76 @@
+---
+name: skill-growing
+description: 既存スキルフォルダを修正・ブラッシュアップするときの絶対ルール。正規仕様は skill-builder の references/skill-folder-spec.md（公式 PDF・Anthropic ドキュメントに整合）。検証・置換・PD・分割・Troubleshooting 形式・同期。「修正して」「育てて」、エラー時、last_verified 30日超で発動。
+last_verified: 2026-03-21
+---
+
+# スキルを育てる（差分駆動・置換型ループ）
+
+## スキルは「フォルダ」単位で扱う
+
+**1 スキル = 1 ディレクトリ**（標準ツリー: `SKILL.md` → `scripts/` → `references/` → `assets/`。不要なサブフォルダは作らない）。編集は **常にフォルダ根を単位**とし、**SKILL.md だけをバラで扱わない**。
+
+**正規仕様（各フォルダの役割・禁止・Troubleshooting の型・3 層・検証 3 観点・ホスト別配置・ルール同期）**: **skill-builder** をインストールしているホストでは必ず Read — `skill-builder/references/skill-folder-spec.md`（例: `~/.cursor/skills/...`、`~/.claude/skills/...` など**実際に skill-builder があるパス**）。一次情報: [公式 PDF](https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf)、[Agent Skills overview](https://docs.anthropic.com/en/docs/agents-and-tools/agent-skills/overview)。
+
+### 育成時のフォルダ別ルール
+
+| 対象 | 厳守 |
+|------|------|
+| **SKILL.md** | 第1層を肥大化させない。第2層は命令形の核心のみ。**`## Troubleshooting` は `### エラー:` + 原因 + 対処**（典型数件）。長い列挙は `references/` へ退避。 |
+| **references/** | 長文化・仕様・エラー一覧の**正本**。ファイル分割はトピック単位。SKILL からパスで参照。 |
+| **scripts/** | 実行可能性・秘密不含を維持。変更時は SKILL 内の**実行例・前提**を同期。 |
+| **assets/** | パスと用途が SKILL の記述と一致しているか確認。大きな説明は references へ。 |
+
+**エージェントへの絶対指示**: 上記フォルダに**手を入れる前に**本スキルを読み、**追記を禁じ**「検証・置換・分割判定・同期」のループを回すこと。
+
+## 発動トリガー（自律ループの起点）
+
+1. **既存スキルの見直し・編集・拡張・ブラッシュアップ時**: 「修正して」「ブラッシュアップして」「見直して」「拡張して」など。
+2. **構築直後**: **skill-builder** で新規作成した直後。分割判定を 1 回（skill-builder 手順 0・4）。
+3. **問題発生時**: エラー・反映失敗 → **再発パターンは `references/`（例: `errors.md`）に集約**。SKILL の `## Troubleshooting` は **`skill-folder-spec.md` §2.3 の形式**を保ち、**典型 1〜3 件**＋「詳細は references/…」1 行。
+4. **賞味期限切れ**: 対象スキルの `last_verified` が今日から 30 日以上前。
+5. **明示的指示**: 「更新して」「育てて」。
+
+## 実行すべき4つの絶対制約
+
+### 1. 検証（Execution）
+
+対象スキルや references に記載された検証手順（スクリプト等）を**必ず最初に実行**する。失敗したら解消を最優先。
+
+- **スクリプトが無い場合**: ドキュメント上の**再現手順を 1 回実行**するか、**トリガー妥当性**（依頼の言い換えで起動すべきか・無関係で不発か）を目視で確認する。**チェックを形骸化させない**（できたことだけを事実として書く）。
+
+### 2. 置換（Injection管理）
+
+新しい知見や回避策を得た場合、**単なる追記は絶対に行わない**。古い記述・冗長・失効手順を**削除・圧縮・入れ替え**する。**対象スキルの SKILL.md 総行数は原則増やさない**。長い背景は references に退避。
+
+- **Progressive Disclosure の維持**: 本文が肥大化したら、それは**第3層（references 等）へ移すのも有効な置換**である（トークン効率と一貫）。
+- **例外（削減禁止）**: **安全・コンプライアンス・必須の警告**は、行数削減のために削除しない。圧縮する場合も意味が損なわれないようにする。
+
+### 3. 分割判定（Adherence管理）
+
+推論方向の異なる操作の混在、頻出する条件分岐、制約が 4 つ以上に膨らんでいる場合は**スキル分割**を提案する。
+
+### 4. 同期（Selectionとグラウンディング）
+
+更新後、対象スキルのフロントマターを更新する:
+
+- **description**: 実態と一致しているか。
+- **last_verified**: 今日の日付（`YYYY-MM-DD`）。内容を変えなかった読み直しだけなら据え置き可だが、**賞味期限ルール**を満たすよう方針に合わせる。
+
+## Troubleshooting
+
+### エラー: スキルが読み込まれない・参照先が無い
+
+**原因**: `~/.cursor/skills/<name>/` のフォルダ名と `SKILL.md` の `name` が不一致、または `references/` の相対パスが誤り。
+
+**対処**: フォルダ名と YAML の `name` を同一 kebab-case に揃える。`references/` へのリンクをスキル根からの相対パスで確認する。
+
+### エラー: 手順どおりに反映されない
+
+**原因**: Cursor のバージョン差、または別ホスト（Claude Code / Antigravity）ではスキル配置パスが異なる。
+
+**対処**: **skill-folder-spec.md** §9 でホスト別パスを確認する（**skill-builder** 内の `references/skill-folder-spec.md`）。
+
+---
+
+*設計思想の詳細は [references/README.md](references/README.md)。**フォルダ・各層の厳密ルール**は **skill-builder** の `references/skill-folder-spec.md`。補足は同 `references/skill-creator-and-official.md`。エージェントは実行時に本 SKILL.md を読めばよい。*

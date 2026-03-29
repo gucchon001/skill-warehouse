@@ -10,7 +10,7 @@
 
 1. [ライブラリ運用・マルチホスト](#1-ライブラリ運用マルチホスト)
 2. [スキルの設計・作成・移行](#2-スキルの設計作成移行)
-3. [Cursor ルールとサブエージェント](#3-cursor-ルールとサブエージェント)
+3. [Cursor ルールとサブエージェント定義](#3-cursor-ルールとサブエージェント)
 4. [エディタ設定（VS Code / Cursor）](#4-エディタ設定vs-code--cursor)
 5. [品質・デバッグ・UI / UX](#5-品質デバッグui--ux)
 6. [Google Workspace（gws）と Sheets API](#6-google-workspacegwsと-sheets-api)
@@ -40,15 +40,12 @@
 
 **削除したメタスキル**（内容は **skill-builder/references/** に集約）: `skill-structure`, `skill-workflow`, `skill-authoring`, `skill-descriptions`, `skill-patterns`, `skill-requirements`, `skill-scripts`, `migrate-locations` → **`migration-paths.md`** と **`skill-writing-supplement.md`** を参照。
 
-## 3. Cursor ルールとサブエージェント
+## 3. Cursor ルールとサブエージェント定義
 
 | スキル | 概要 |
 |--------|------|
 | [**cursor-rules**](./cursor-rules/) | `.cursor/rules/*.mdc` の形式・`alwaysApply` / `globs`・本文の書き方（旧 rule-format / rule-scope / rule-authoring を統合）。 |
-| [**subagent-descriptions**](./subagent-descriptions/) | サブエージェントの description の書き方。 |
-| [**subagent-format**](./subagent-format/) | サブエージェント `.md` のフォーマット。 |
-| [**subagent-locations**](./subagent-locations/) | プロジェクト vs ユーザー配置と優先順位。 |
-| [**subagent-workflow**](./subagent-workflow/) | サブエージェント作成の手順。 |
+| [**subagent-authoring**](./subagent-authoring/) | サブエージェント定義の執筆・配置・形式・手順。**Cursor / Claude Code / Antigravity** は `references/locations.md` 等で分離（旧 subagent-* 4 本を統合）。 |
 
 ## 4. エディタ設定（VS Code / Cursor）
 
@@ -131,4 +128,4 @@
 
 ## 件数
 
-上記グループに含まれるスキルは **42** 件（各フォルダに `SKILL.md` あり）。プロジェクト固有の `.cursor/skills`（業務アプリ用）は本リポジトリには含めていません。
+上記グループに含まれるスキルは **39** 件（各フォルダに `SKILL.md` あり）。プロジェクト固有の `.cursor/skills`（業務アプリ用）は本リポジトリには含めていません。

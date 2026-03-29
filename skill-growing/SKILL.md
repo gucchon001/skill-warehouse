@@ -77,3 +77,5 @@ metadata:
 ---
 
 *設計思想の詳細は [references/README.md](references/README.md)。**フォルダ・各層の厳密ルール**は **skill-builder** の `references/skill-folder-spec.md`。補足は同 `references/skill-creator-and-official.md`。執筆パターン・`scripts/`・移行パスは同 `references/skill-writing-supplement.md` / `migration-paths.md`。エージェントは実行時に本 SKILL.md を読めばよい。*
+
+タスク完了後の自己採点から改善対象を決めるときは **skill-run-scoring**（5 軸ルーブリック）を併用する。

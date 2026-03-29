@@ -85,6 +85,7 @@ You MUST complete each phase before proceeding to the next.
 ## Related
 
 - Use skill **test-driven-development** for creating the failing test case (Phase 4, Step 1).
+- If **two fix attempts** still reproduce the bug, or **local-quality-gate** fails **three times** on the same step, use **escalating-debug-loop** (stop, research, parallel critics, then one patch).
 
 ---
 *Source: [awesome-claude-skills](https://github.com/BehiSecc/awesome-claude-skills) → [obra/superpowers systematic-debugging](https://github.com/obra/superpowers/tree/main/skills/systematic-debugging). Adapted for Cursor.*

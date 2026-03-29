@@ -37,6 +37,9 @@
 | [**skill-builder**](./skill-builder/) | **新規**スキル（公式フォルダ・`skill-folder-spec` 正本・移行パス・執筆補足は `references/`）。 |
 | [**skill-growing**](./skill-growing/) | **既存**スキルの修正・圧縮・第3層への退避。育成ループ。仕様は skill-builder の `skill-folder-spec.md` に従う。 |
 | [**layer-skill-design**](./layer-skill-design/) | 思考 / 制作 / データのレイヤー分けとフォルダ構成（skill-builder が参照）。 |
+| [**skill-run-scoring**](./skill-run-scoring/) | タスク完了後の **5 軸自己採点**（目的・品質・手順・引き継ぎ・リスク）。低軸を **skill-growing** へ接続。 |
+| [**workflow-task-agent-ref-layers**](./workflow-task-agent-ref-layers/) | **Workflow / Task / Agent / Reference** を整理し、CLAUDE.md・サブエージェント・`references/`・**layer-skill-design** と対応づける。 |
+| [**claude-md-workflow-routing**](./claude-md-workflow-routing/) | **CLAUDE.md** に状況→スキルのルーティング表と**ショートカット禁止**を書く（**workflow-task-agent-ref-layers** と併用）。 |
 
 **削除したメタスキル**（内容は **skill-builder/references/** に集約）: `skill-structure`, `skill-workflow`, `skill-authoring`, `skill-descriptions`, `skill-patterns`, `skill-requirements`, `skill-scripts`, `migrate-locations` → **`migration-paths.md`** と **`skill-writing-supplement.md`** を参照。
 
@@ -64,6 +67,9 @@
 | [**dashboard-first-view-ux**](./dashboard-first-view-ux/) | ダッシュボードのファーストビューと情報優先順位。 |
 | [**automated-2stage-review**](./automated-2stage-review/) | PR・実装の **2 段レビュー**（仕様準拠 → 合格後のみコード品質）。サブエージェントと連携。 |
 | [**code-review-subagents**](./code-review-subagents/) | **コードレビューをサブエージェントに委譲**（単一 `code-reviewer` または **automated-2stage-review** への振り分け）。 |
+| [**pre-implementation-critics**](./pre-implementation-critics/) | **実装前**に 3 視点（正確性・網羅性・代替仮説）のクリティックを並列で当て、合意してから実装。**claude-md-workflow-routing** とセット。 |
+| [**local-quality-gate**](./local-quality-gate/) | **lint → typecheck → build → test** の順でローカル品質ゲート。最大 3 ループ。**claude-md-workflow-routing** の PR 前行に相当。 |
+| [**escalating-debug-loop**](./escalating-debug-loop/) | 修正 2 回無効・ゲート同段 3 連敗で停止し、調査＋並列クリティックからやり直す。**systematic-debugging** の後段。 |
 
 ## 6. Google Workspace（gws）と Sheets API
 
@@ -130,4 +136,4 @@
 
 ## 件数
 
-上記グループに含まれるスキルは **41** 件（各フォルダに `SKILL.md` あり）。プロジェクト固有の `.cursor/skills`（業務アプリ用）は本リポジトリには含めていません。
+上記グループに含まれるスキルは **47** 件（各フォルダに `SKILL.md` あり）。プロジェクト固有の `.cursor/skills`（業務アプリ用）は本リポジトリには含めていません。

@@ -37,7 +37,7 @@ description: "新規 Agent スキルを公式構成で設計・生成（SKILL.md
 | 層 | 置き場所 | 原則 |
 |----|----------|------|
 | **第1層** | `SKILL.md` の YAML | 短く、**具体トリガー**（`description` は 1024 文字以内。短さより発火に必要な表現を優先）。**`description` の言語は日英ハイブリッドを標準**（下記 §）。 |
-| **第2層** | `SKILL.md` 本文 | 命令形・核心手順・**`## Troubleshooting`（`### エラー:` + 原因 + 対処）**。 |
+| **第2層** | `SKILL.md` 本文 | 命令形・核心手順・**`## Troubleshooting`（`### エラー:` + 原因 + 対処、典型 1〜3 件）**。超える分は `references/`。 |
 | **第3層** | 主に `references/`（＋ `scripts/`・`assets/`） | 長文仕様・長例・エラー一覧の本体。必要時のみ Read / 実行。 |
 
 ## スキル作成のトリガー（本スキルが担当するもの）
@@ -97,7 +97,8 @@ description: "新規 Agent スキルを公式構成で設計・生成（SKILL.md
 - **[references/skill-folder-spec.md](references/skill-folder-spec.md) を Read 済み**とし、ツリー順・各フォルダの禁止事項に従う。
 - **`<skill-name>/` を作成**し、直下に **SKILL.md**。`scripts/`・`references/`・`assets/` は必要なら追加（空フォルダだけ作らない）。
 - フロントマターは **name** と **description** 必須。それ以外は `metadata:` 等（`skill-folder-spec.md` §2.1）。
-- 本文見出し・**Troubleshooting の型**（`### エラー:` + **原因** + **対処**）は `skill-folder-spec.md` §2.2–2.3 に合わせる。詳細エラー表は `references/errors.md` 等へ。
+- **（任意・推奨）** `metadata.last_verified: "YYYY-MM-DD"`（作成日）を付けると、**skill-growing** の賞味期限ルール（30 日）とその後の育成で扱いやすい。
+- 本文見出し・**Troubleshooting の型**（`### エラー:` + **原因** + **対処**）は `skill-folder-spec.md` §2.2–2.3 に合わせる。**SKILL 内は典型 1〜3 件**に留め、それ以上は `references/errors.md` 等へ退避し、SKILL には「詳細は references/…」1 行。
 
 ### 3. カスタマイズ
 
@@ -111,7 +112,7 @@ description: "新規 Agent スキルを公式構成で設計・生成（SKILL.md
 - [ ] **トリガー**: 依頼の言い換えで起動すべきか／無関係で起動しないか、目視で確認
 - [ ] **機能**: 手順どおりにツール呼び出しや出力が再現できるか（スクリプトがあれば実行）
 - [ ] **（任意）** スキルあり・なしでツール回数や本文長の体感を比較
-- [ ] `## Troubleshooting` に **1 件以上**あり、**`### エラー:` + 原因 + 対処** の形（`skill-folder-spec.md` §2.3）
+- [ ] `## Troubleshooting` に **1〜3 件**（典型）あり、**`### エラー:` + 原因 + 対処** の形（`skill-folder-spec.md` §2.3）。追加項目は `references/` に集約
 - [ ] フォルダ構成が **SKILL.md → scripts/ → references/ → assets/** の意味で矛盾なく、`skill-folder-spec.md` §1 に合致
 - [ ] 配置先: グローバル `~/.cursor/skills/<name>/` または プロジェクト `.cursor/skills/<name>/`
 - [ ] **skill-growing** がある場合: 「分割判定」を 1 回実行

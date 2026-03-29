@@ -1,5 +1,7 @@
 # BigQuery MCP 設定ガイドと動かない時の対処
 
+**bigquery-mcp** スキル（入口）の第3層。インストールの手順本体は **bigquery-mcp-install** の `references/install-steps.md`、ツール選択は **bigquery-mcp-usage**。
+
 公式: [MCP を使用して LLM を BigQuery に接続する](https://docs.cloud.google.com/bigquery/docs/pre-built-tools-with-mcp-toolbox?hl=ja)
 
 ## 共通: ツールボックスのダウンロード

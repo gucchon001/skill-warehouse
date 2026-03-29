@@ -106,9 +106,9 @@
 
 | スキル | 概要 |
 |--------|------|
-| [**bigquery-mcp**](./bigquery-mcp/) | BigQuery MCP（toolbox）の設定と接続トラブルシュート。 |
-| [**bigquery-mcp-install**](./bigquery-mcp-install/) | toolbox の導入と `mcp.json` 登録。 |
-| [**bigquery-mcp-usage**](./bigquery-mcp-usage/) | MCP ツールの選び方とパラメータ。 |
+| [**bigquery-mcp**](./bigquery-mcp/) | BigQuery MCP の**入口（分岐）**と接続トラブルシュート。詳細設定は `references/setup-and-troubleshooting.md`。 |
+| [**bigquery-mcp-install**](./bigquery-mcp-install/) | **初回** toolbox 導入と `mcp.json` 登録（実行手順の正本）。 |
+| [**bigquery-mcp-usage**](./bigquery-mcp-usage/) | MCP **ツールの選び方**と呼び出し原則。 |
 | [**dataplex-catalog-entry-names**](./dataplex-catalog-entry-names/) | Data Catalog と Dataplex のエントリ名形式の差（403/404 回避）。 |
 | [**notebooklm-mcp**](./notebooklm-mcp/) | NotebookLM MCP の導入・認証・ツール選択。 |
 | [**file-search-store-replace-upload**](./file-search-store-replace-upload/) | Gemini File Search の display_name 単位の差し替えアップロード。 |

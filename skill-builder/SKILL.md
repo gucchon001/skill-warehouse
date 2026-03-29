@@ -26,7 +26,7 @@ description: "新規 Agent スキルを公式構成で設計・生成（SKILL.md
 └── assets/               # 任意。テンプレ・非テキスト資産
 ```
 
-**配置**（グローバル／プロジェクト）だけホストで異なる。**`SKILL.md` 単体をフォルダ外に置かない**。`scripts/` 等は不要なら作らない。パス一覧・マルチホスト同期・ルールの扱いは [references/skill-folder-spec.md](references/skill-folder-spec.md) の **§9・§10**。
+**配置**（グローバル／プロジェクト）だけホストで異なる。**`SKILL.md` 単体をフォルダ外に置かない**。`scripts/` 等は不要なら作らない。パス一覧・マルチホスト同期・ルールの扱いは [references/skill-folder-spec.md](references/skill-folder-spec.md) の **§9・§10**。ルール／スラッシュコマンドからスキルへ移すパスは [references/migration-paths.md](references/migration-paths.md)。
 
 **Rules・Hooks・Skills の違い**（ルールに書くかスキル化するか・フックとの混同防止）: [references/rules-hooks-skills.md](references/rules-hooks-skills.md)（Cursor 等を前提とした**ホスト補足**。公式 Skills は Skills 本体が一次）。
 
@@ -88,6 +88,7 @@ description: "新規 Agent スキルを公式構成で設計・生成（SKILL.md
 
 ### 1. 要件の整理
 
+- **作成前の観点**（チェックリスト・`skills-cursor` 禁止など）: [references/skill-writing-supplement.md](references/skill-writing-supplement.md)。
 - **名前（name）**: **kebab-case**（小文字・数字・ハイフンのみ）。**スペース・アンダースコア・大文字は使わない**。フォルダ名と一致させる。
 - **description**: **何ができて、どんな依頼で起動するか**＋**具体トリガー・キーワード**。**日英ハイブリッド**（上記 §）。**手順の要約は書かない**（罠回避）。1024 文字以内。**短さより発火に必要なフレーズを優先**。
 - 一度きりのタスクや要件が頻繁に変わるものはスキル化しない（詳細は `references/skill-creator-and-official.md`）。
@@ -103,7 +104,7 @@ description: "新規 Agent スキルを公式構成で設計・生成（SKILL.md
 ### 3. カスタマイズ
 
 - **description**: 抽象語だけにしない。機能とトリガーを具体化。**日英ハイブリッド**で抜けがある方を足す。**手順が description に染み出していたら第2層へ戻す**。
-- **本文**: **命令形**（「To do X, do Y」）。長い説明は第3層へ移し、SKILL には「参照: references/xxx.md」のみ。
+- **本文**: **命令形**（「To do X, do Y」）。長い説明は第3層へ移し、SKILL には「参照: references/xxx.md」のみ。ガイドの型・`scripts/` の扱い・執筆の自由度は [references/skill-writing-supplement.md](references/skill-writing-supplement.md)。
 
 ### 4. 簡易検証（作成後に確認）
 
@@ -164,4 +165,4 @@ description: "新規 Agent スキルを公式構成で設計・生成（SKILL.md
 | [anthropics/skills](https://github.com/anthropics/skills) | 公式例・template |
 | [agentskills.io](https://agentskills.io) | オープン標準 |
 
-**本スキル内のローカル正本**: [references/skill-folder-spec.md](references/skill-folder-spec.md)（上記公式リソースに揃えた厳密仕様）、[references/skill-creator-and-official.md](references/skill-creator-and-official.md)（補足）、[references/rules-hooks-skills.md](references/rules-hooks-skills.md)（Rules / Hooks / Skills の対比・スキル化判断）。
+**本スキル内のローカル正本**: [references/skill-folder-spec.md](references/skill-folder-spec.md)（上記公式リソースに揃えた厳密仕様）、[references/skill-creator-and-official.md](references/skill-creator-and-official.md)（補足）、[references/rules-hooks-skills.md](references/rules-hooks-skills.md)（Rules / Hooks / Skills の対比・スキル化判断）、[references/migration-paths.md](references/migration-paths.md)（ルール・コマンド → スキル移行パス）、[references/skill-writing-supplement.md](references/skill-writing-supplement.md)（執筆補足・パターン・scripts・旧メタスキル相当）。

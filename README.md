@@ -34,17 +34,11 @@
 
 | スキル | 概要 |
 |--------|------|
-| [**skill-builder**](./skill-builder/) | 新規スキルフォルダ（SKILL.md / scripts / references / assets）を公式構成で設計・生成。 |
-| [**skill-growing**](./skill-growing/) | 既存スキルの修正・圧縮・第3層への退避。skill-folder-spec 準拠の育成ループ。 |
-| [**skill-structure**](./skill-structure/) | ディレクトリレイアウトと SKILL.md フォーマットの定義。 |
-| [**skill-workflow**](./skill-workflow/) | スキル作成の E2E ワークフロー（発見→設計→実装→検証）。 |
-| [**skill-authoring**](./skill-authoring/) | Agent Skill 執筆のベストプラクティス。 |
-| [**skill-descriptions**](./skill-descriptions/) | `description` フィールドの書き方（WHAT/WHEN・トリガー語）。 |
-| [**skill-patterns**](./skill-patterns/) | テンプレ・ワークフロー・条件分岐など再利用パターン。 |
-| [**skill-requirements**](./skill-requirements/) | 新規スキル化の前に目的・範囲・トリガーを整理。 |
-| [**skill-scripts**](./skill-scripts/) | スキル内 `scripts/` の使いどころと品質。 |
-| [**layer-skill-design**](./layer-skill-design/) | 思考 / 制作 / データのレイヤー分けとフォルダ構成。 |
-| [**migrate-locations**](./migrate-locations/) | ルール・スラッシュコマンドから Skills への移行パス。 |
+| [**skill-builder**](./skill-builder/) | **新規**スキル（公式フォルダ・`skill-folder-spec` 正本・移行パス・執筆補足は `references/`）。 |
+| [**skill-growing**](./skill-growing/) | **既存**スキルの修正・圧縮・第3層への退避。育成ループ。仕様は skill-builder の `skill-folder-spec.md` に従う。 |
+| [**layer-skill-design**](./layer-skill-design/) | 思考 / 制作 / データのレイヤー分けとフォルダ構成（skill-builder が参照）。 |
+
+**削除したメタスキル**（内容は **skill-builder/references/** に集約）: `skill-structure`, `skill-workflow`, `skill-authoring`, `skill-descriptions`, `skill-patterns`, `skill-requirements`, `skill-scripts`, `migrate-locations` → **`migration-paths.md`** と **`skill-writing-supplement.md`** を参照。
 
 ## 3. Cursor ルールとサブエージェント
 
@@ -137,4 +131,4 @@
 
 ## 件数
 
-上記グループに含まれるスキルは **50** 件（各フォルダに `SKILL.md` あり）。プロジェクト固有の `.cursor/skills`（業務アプリ用）は本リポジトリには含めていません。
+上記グループに含まれるスキルは **42** 件（各フォルダに `SKILL.md` あり）。プロジェクト固有の `.cursor/skills`（業務アプリ用）は本リポジトリには含めていません。

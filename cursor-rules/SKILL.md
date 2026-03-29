@@ -26,7 +26,7 @@ description: "Cursor `.cursor/rules/*.mdc` を一括で扱う。.mdc の YAML（
 
 | スキル | 役割 |
 |--------|------|
-| **migrate-locations** | ルール・コマンド → スキル移行の**パス** |
+| **skill-builder** `references/migration-paths.md` | ルール・コマンド → スキル移行の**パス** |
 | **skill-builder** / **skill-growing** | オンデマンド手順の**新規スキル**／既存スキルの育成 |
 | **rules-hooks-skills**（skill-builder 内 `references/`） | Rules と Hooks と Skills の違い |
 

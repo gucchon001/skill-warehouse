@@ -3,6 +3,10 @@
 .SYNOPSIS
   Points Cursor, Claude Code, and Antigravity global skill roots at one canonical folder (Windows directory junctions).
 
+.PARAMETER SkipGitPush
+  If set, only create/repair junctions; do not run git-push-canonical.ps1.
+  Default: push when CANON contains .git (see skills-multi-host-sync SKILL.md).
+
 .PARAMETER CanonicalPath
   Absolute path to the real directory that contains skill folders (each <name>/SKILL.md).
   Default: $env:USERPROFILE\.agent-skills
@@ -17,7 +21,7 @@
 param(
   [Parameter()]
   [string] $CanonicalPath = (Join-Path $env:USERPROFILE '.agent-skills'),
-  [switch] $GitPush
+  [switch] $SkipGitPush
 )
 
 Set-StrictMode -Version Latest
@@ -96,7 +100,7 @@ foreach ($dest in $targets) {
 
 Write-Host "Done. Canonical: $canonical"
 
-if ($GitPush) {
+if (-not $SkipGitPush) {
   $gitScript = Join-Path $PSScriptRoot 'git-push-canonical.ps1'
   if (Test-Path -LiteralPath $gitScript) {
     & $gitScript -CanonicalPath $canonical

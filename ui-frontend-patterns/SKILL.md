@@ -43,6 +43,12 @@ metadata:
 - [ ] モバイル: 狭い幅での折り返し・タップ領域は十分か
 - [ ] 状態: 無効・読み込み中・エラーなどの状態が視覚的に区別できるか
 
+## 関連スキル（デザイン領域の整理）
+
+- **UI / UX の用語定義** … グローバルスキル貯蔵庫の **[README.md の「UI / UX の定義」節](../README.md#ui-ux-definition)**（本スキルと `dashboard-first-view-ux` の切り分けの正本）。
+- **`dashboard-first-view-ux`** … ダッシュボード・トップの**ファーストビュー・表示順**（「自分宛て」優先など）。入口画面の構成ならこちらを先に Read。
+- **プロジェクト別ハブ** … 例: 業務リポの **`design-ui`**（`.cursor/skills/design-ui/SKILL.md`）がルール・リファクタ reference・上記グローバルスキルへの読み順をまとめる場合がある。
+
 ## 参照
 
 - [Component Gallery](https://github.com/inbn/component-gallery) — デザインシステムのコンポーネント例。

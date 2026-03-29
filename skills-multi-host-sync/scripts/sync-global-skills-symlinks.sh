@@ -46,7 +46,8 @@ link_one "$HOME/.gemini/antigravity/skills"
 
 echo "Done. Canonical: $CANON"
 
-if [[ "${GIT_PUSH:-0}" == "1" ]]; then
+# Default: run git-push-canonical when .git exists. Opt out: SKIP_GIT_PUSH=1
+if [[ "${SKIP_GIT_PUSH:-0}" != "1" ]]; then
   SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
   bash "$SCRIPT_DIR/git-push-canonical.sh" "$CANON"
 fi

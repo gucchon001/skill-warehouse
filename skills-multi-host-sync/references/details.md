@@ -35,9 +35,10 @@ Windows 例: `%USERPROFILE%\.cursor\skills` ほか同様。macOS/Linux は `$HOM
 **目的**: ジャンクション／シンボリックリンクの同期が終わったあと、正本 `CANON` の変更を **commit → push** してバックアップ・共有する。
 
 - **判定**: `Test-Path (Join-Path CANON '.git')` または `[ -d "$CANON/.git" ]`。
-- **実行**: `scripts/git-push-canonical.ps1 -CanonicalPath <CANON>`（Windows）。Unix は `scripts/git-push-canonical.sh <CANON>`。ジャンクション作成と一括なら Windows は `sync-global-skills-junctions.ps1 -GitPush`、Unix は `GIT_PUSH=1 ./sync-global-skills-symlinks.sh`。
+- **実行（既定）**: `sync-global-skills-junctions.ps1` / `sync-global-skills-symlinks.sh` の**末尾で** `git-push-canonical` が走る（`CANON` に `.git` があるとき）。単体実行: `scripts/git-push-canonical.ps1 -CanonicalPath <CANON>` / `git-push-canonical.sh <CANON>`。
 - **コミットメッセージ**: 未指定なら `chore: sync skill-warehouse <YYYY-MM-dd HH:mm>`（**スキル貯蔵庫**の同期を表す既定文）。上書きは `-Message`（ps1）または `GIT_COMMIT_MSG`（sh）。
-- **push をしない**: ps1 は `-SkipPush`、sh は `SKIP_PUSH=1`。
+- **同期だけして Git は触らない**: Windows は `sync-global-skills-junctions.ps1 -SkipGitPush`。Unix は `SKIP_GIT_PUSH=1 ./sync-global-skills-symlinks.sh`。
+- **コミットはするが push だけしない**（`git-push-canonical` 単体のとき）: ps1 は `-SkipPush`、sh は `SKIP_PUSH=1`。
 - **リポジトリ名（スキル貯蔵庫）**: スラッグは **`skill-warehouse`**。新規作成例: `gh repo create skill-warehouse --private --source=. --remote=origin --push`（`gh` 認証済みのとき）。別アカウント／別名にしたい場合は `git remote set-url origin https://github.com/<user>/<repo>.git`。
 - **リモート URL**: **`git remote -v` を正**とする。旧 `cursor-global-skills` を運用しない場合は `git remote remove origin` のうえ新規 `origin` を追加する。
 

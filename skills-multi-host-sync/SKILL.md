@@ -1,9 +1,9 @@
 ---
 name: skills-multi-host-sync
-description: "Unifies one canonical Agent Skills tree (スキル貯蔵庫 / skill-warehouse) for Cursor, Claude Code, and Antigravity via junctions or symlinks; optional git commit-push to origin. Triggers: スキルを同期して, スキルを同期, グローバルスキルを同期, スキル同期; sync global skills, sync skills across agents. On trigger, run verify/repair and git when applicable in the shell—not prose-only unless execution is blocked."
+description: "Unifies one canonical Agent Skills tree (スキル貯蔵庫 / skill-warehouse) for Cursor, Claude Code, and Antigravity via junctions or symlinks; by default runs git commit+push on CANON when .git exists. Triggers: スキルを同期して, スキルを同期, グローバルスキルを同期, スキル同期; sync global skills, sync skills across agents. On trigger, run verify/repair then sync script (includes git push by default)—not prose-only unless execution is blocked."
 metadata:
   last_verified: "2026-03-29"
-  version: "1.3.1"
+  version: "1.4.0"
 ---
 
 # skills-multi-host-sync
@@ -12,18 +12,20 @@ metadata:
 
 **1 つの正本フォルダ**（**スキル貯蔵庫**；Git では多くの場合リポジトリ名 `skill-warehouse`）にグローバルスキルを置き、`~/.cursor/skills`・`~/.claude/skills`・`~/.gemini/antigravity/skills` の**3 ルートを同じ実体へ向ける**。以後は正本だけ編集する。
 
+**「スキルを同期して」** = リンクの検証・修復に加え、**正本に `.git` があるときは既定で `git add` → 必要なら `commit` → `push`** まで行う（`scripts/sync-global-skills-*.ps1|sh` が末尾で `git-push-canonical` を呼ぶ）。**リンクだけ直したい**ときは `-SkipGitPush` / `SKIP_GIT_PUSH=1`。
+
 ## Execute
 
 シェルが使えるときは**この順で実行**する。説明のみで終えない（実行不可のときだけ手動コマンドを返す）。
 
 1. **正本** `CANON` を決める。未指定なら `~/.agent-skills`（Windows: `%USERPROFILE%\.agent-skills`）。
-2. **検証**: 上記 3 ルートがすべて `CANON` へのジャンクション（Windows）またはシンボリックリンク（Unix）か確認する。すべて一致なら、各ルート直下のスキルフォルダ数を数え、等しければ**終了**。
-3. **修復**: ずれている、または実フォルダのままのルートがある場合:
+2. **検証**: 3 ルートがすべて `CANON` へのジャンクション（Windows）またはシンボリックリンク（Unix）か確認する。**すでに一致していても**手順 3〜4 を実行する（ジャンクション同期は冪等、**Git は未コミット変更があれば push まで進む**）。
+3. **修復**（ずれている・実フォルダのままのとき）:
    - 中身のある実フォルダは**必ず** `skills_backup_YYYYMMDD_HHmmss` などへリネームしてから続行する。
    - `CANON` が空に近いなら、**いちばんスキル数が多い**実フォルダから `robocopy` / `cp -a` で `CANON` へ集約する。
-   - Windows: `scripts/sync-global-skills-junctions.ps1 -CanonicalPath <CANON>`。Git までまとめるなら **`-GitPush`** を付ける。
-   - Unix: `scripts/sync-global-skills-symlinks.sh [CANON]`。Git までまとめるなら **`GIT_PUSH=1`** を前置する。
-4. **Git**: `CANON` に `.git` があるとき、リンク同期の**直後**に `scripts/git-push-canonical.ps1`（Windows）または `scripts/git-push-canonical.sh`（Unix）を実行する。変更がなければコミットは作らず、`git push` のみ試みる（リモートが進んでいる場合など）。`git push` が失敗してもジャンクション同期の成功は報告し、認証・コンフリクトは `references/details.md` の Git 節に従ってユーザーへ示す。
+   - Windows: `scripts/sync-global-skills-junctions.ps1 -CanonicalPath <CANON>`（**既定で Git push 込み**。Git を触らないときだけ `-SkipGitPush`）。
+   - Unix: `scripts/sync-global-skills-symlinks.sh [CANON]`（**既定で Git push 込み**。Git を触らないときだけ `SKIP_GIT_PUSH=1` を前置）。
+4. **Git**: 上記スクリプトが `CANON` に `.git` がある場合に **`git-push-canonical`** を呼ぶ（既定）。変更がなければコミットは作らず、`git push` のみ試みる場合がある。`git push` が失敗してもジャンクション同期の成功は報告し、認証・コンフリクトは `references/details.md` の Git 節に従ってユーザーへ示す。
 5. **報告**: `CANON`、3 ルートのリンク先、フォルダ数、Git（コミット有無・push 成否）を短く出す。
 
 詳細・パス表・コピー同期・Git 例: `references/details.md`。

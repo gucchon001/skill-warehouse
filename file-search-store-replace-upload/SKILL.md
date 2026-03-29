@@ -1,6 +1,6 @@
 ---
 name: file-search-store-replace-upload
-description: Gemini File Search で同一 display_name のドキュメントを delete してから再アップロードする設計。ea_saiten_prottype の file_search_store_replace・upload/sync/採点に対応。File Search 差し替え・重複なし更新・documents.list/delete・--no-replace で発火。
+description: "Gemini File Search で同一 display_name のドキュメントを delete してから再アップロードする設計。ea_saiten_prottype の file_search_store_replace・upload/sync/採点に対応。File Search 差し替え・重複なし更新・documents.list/delete・--no-replace で発火。"
 metadata:
   last_verified: "2026-03-27"
 ---

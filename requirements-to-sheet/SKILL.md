@@ -1,7 +1,8 @@
 ---
 name: requirements-to-sheet
-description: 開発計画や要件定義の Markdown を「要件定義フォーマット」に整え、gws または Sheets API で Google スプレッドシートに書き出す手順を案内する。「要件定義をスプレッドシートに出力して」「開発計画をシートに書いて」と言われたときに使う。
-last_verified: 2026-03-17
+description: "開発計画や要件定義の Markdown を「要件定義フォーマット」に整え、gws または Sheets API で Google スプレッドシートに書き出す手順を案内する。「要件定義をスプレッドシートに出力して」「開発計画をシートに書いて」と言われたときに使う。"
+metadata:
+  last_verified: "2026-03-17"
 ---
 
 # 要件定義をスプレッドシートに出力する

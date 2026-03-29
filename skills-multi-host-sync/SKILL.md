@@ -2,8 +2,8 @@
 name: skills-multi-host-sync
 description: "Unifies one canonical Agent Skills tree (スキル貯蔵庫 / skill-warehouse) for Cursor, Claude Code, and Antigravity via junctions or symlinks; optional git commit-push to origin. Triggers: スキルを同期して, スキルを同期, グローバルスキルを同期, スキル同期; sync global skills, sync skills across agents. On trigger, run verify/repair and git when applicable in the shell—not prose-only unless execution is blocked."
 metadata:
-  version: "1.3.1"
   last_verified: "2026-03-29"
+  version: "1.3.1"
 ---
 
 # skills-multi-host-sync

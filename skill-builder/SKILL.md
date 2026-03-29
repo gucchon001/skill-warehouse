@@ -1,6 +1,8 @@
 ---
 name: skill-builder
 description: "新規 Agent スキルを公式構成で設計・生成（SKILL.md / scripts / references / assets）。ホスト共通・配置は skill-folder-spec §9。Triggers: スキルを作って, 新規スキル, skill-builder, create agent skill. New skills only; edits → skill-growing. description は日英ハイブリッドを標準（本スキル「description（日英ハイブリッド）」参照）。"
+metadata:
+  last_verified: "2026-03-31"
 ---
 
 # Skill Builder（スキル構築スキル）

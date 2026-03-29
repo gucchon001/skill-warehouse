@@ -1,7 +1,8 @@
 ---
 name: vibesec
-description: Helps write secure web applications. Use when working on any web application or when a user requests a scan or audit to ensure security best practices are followed.
-last_verified: 2026-03-17
+description: "Helps write secure web applications. Use when working on any web application or when a user requests a scan or audit to ensure security best practices are followed."
+metadata:
+  last_verified: "2026-03-17"
 ---
 
 # Secure Coding Guide for Web Applications

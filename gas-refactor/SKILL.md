@@ -1,6 +1,8 @@
 ---
 name: gas-refactor
 description: "Diagnoses Google Apps Script code and refactors for redundancy, duplication, and performance. Use when improving GAS quality, batching sheet reads/writes, or reviewing Apps Script."
+metadata:
+  last_verified: "2026-03-31"
 ---
 
 # gas-refactor

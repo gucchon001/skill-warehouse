@@ -1,6 +1,8 @@
 ---
 name: bigquery-mcp
-description: BigQuery MCP（データベース向け MCP ツールボックス）の設定・利用と、接続できない時の設定ガイド。Cursor / Claude / VS Code 等でテーブル一覧・SQL 実行・分析ツールを使う時に参照する。
+description: "BigQuery MCP（データベース向け MCP ツールボックス）の設定・利用と、接続できない時の設定ガイド。Cursor / Claude / VS Code 等でテーブル一覧・SQL 実行・分析ツールを使う時に参照する。"
+metadata:
+  last_verified: "2026-03-31"
 ---
 
 # BigQuery MCP スキル

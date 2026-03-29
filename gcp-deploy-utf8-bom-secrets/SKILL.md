@@ -1,7 +1,8 @@
 ---
 name: gcp-deploy-utf8-bom-secrets
-description: Cloud Run・Secret Manager 経由の API キー／トークンで Gemini 等が ByteString・65279 エラーを返すときの切り分けと対処。BOM (U+FEFF) 混入の防止・再登録、bash/PowerShell、Node stripBOM。トリガー例：65279、ByteString、デプロイ後だけ失敗、Secret をコンソール貼り付けした、API キー先頭がおかしい。
-last_verified: 2026-03-28
+description: "Cloud Run・Secret Manager 経由の API キー／トークンで Gemini 等が ByteString・65279 エラーを返すときの切り分けと対処。BOM (U+FEFF) 混入の防止・再登録、bash/PowerShell、Node stripBOM。トリガー例：65279、ByteString、デプロイ後だけ失敗、Secret をコンソール貼り付けした、API キー先頭がおかしい。"
+metadata:
+  last_verified: "2026-03-28"
 ---
 
 # GCP デプロイ: Secret の UTF-8 BOM（ByteString / 65279）

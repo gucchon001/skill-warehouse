@@ -1,6 +1,8 @@
 ---
 name: chrome-extension-proxy-cloudrun-deploy
-description: Chrome 拡張用プロキシ API を Cloud Run に安全にデプロイする手順。デプロイ前チェック・Secret（BOM）・ヘルス確認・ロールバックの考え方。トリガーは「プロキシ API を安全にデプロイして」「Cloud Run にプロキシをデプロイ」「本番前にチェックしたい」など。実行コマンドは gcloud-cloudrun-deploy を参照する。
+description: "Chrome 拡張用プロキシ API を Cloud Run に安全にデプロイする手順。デプロイ前チェック・Secret（BOM）・ヘルス確認・ロールバックの考え方。トリガーは「プロキシ API を安全にデプロイして」「Cloud Run にプロキシをデプロイ」「本番前にチェックしたい」など。実行コマンドは gcloud-cloudrun-deploy を参照する。"
+metadata:
+  last_verified: "2026-03-31"
 ---
 
 # Chrome 拡張プロキシ API を Cloud Run に安全にデプロイする

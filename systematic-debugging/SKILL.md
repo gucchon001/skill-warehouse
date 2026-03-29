@@ -1,7 +1,8 @@
 ---
 name: systematic-debugging
-description: Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes
-last_verified: 2026-03-17
+description: "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes"
+metadata:
+  last_verified: "2026-03-17"
 ---
 
 # Systematic Debugging

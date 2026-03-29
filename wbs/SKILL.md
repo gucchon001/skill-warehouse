@@ -1,7 +1,8 @@
 ---
 name: wbs
-description: PJC の内容をもとに WBS（Work Breakdown Structure）を書く。スキル内のレファレンス（考え方・5ステップ・構成・チェックリスト）に沿い、成功状態・スコープは PJC と一致させる。「wbsを作って」「WBSをスプレッドシートに反映して」で発動。
-last_verified: 2026-03-17
+description: "PJC の内容をもとに WBS（Work Breakdown Structure）を書く。スキル内のレファレンス（考え方・5ステップ・構成・チェックリスト）に沿い、成功状態・スコープは PJC と一致させる。「wbsを作って」「WBSをスプレッドシートに反映して」で発動。"
+metadata:
+  last_verified: "2026-03-17"
 ---
 
 # WBS 作成スキル

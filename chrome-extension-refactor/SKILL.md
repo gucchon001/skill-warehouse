@@ -1,6 +1,8 @@
 ---
 name: chrome-extension-refactor
-description: Chrome 拡張機能（Manifest V3・JavaScript）のリファクタリングを案内。責務分離・重複削除・命名・エラーハンドリングの統一。Content Script / Service Worker / Side Panel の境界を崩さず安全に改善する。トリガーは「拡張の JS をリファクタして」「Chrome 拡張のコードを整理して」「責務を分けてきれいにして」など。
+description: "Chrome 拡張機能（Manifest V3・JavaScript）のリファクタリングを案内。責務分離・重複削除・命名・エラーハンドリングの統一。Content Script / Service Worker / Side Panel の境界を崩さず安全に改善する。トリガーは「拡張の JS をリファクタして」「Chrome 拡張のコードを整理して」「責務を分けてきれいにして」など。"
+metadata:
+  last_verified: "2026-03-31"
 ---
 
 # Chrome 拡張機能（JS）リファクタリング

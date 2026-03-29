@@ -2,7 +2,7 @@
 name: skill-growing
 description: "既存スキルフォルダの修正・ブラッシュアップ（検証・置換・PD・分割・Troubleshooting・description 同期）。仕様は skill-builder の skill-folder-spec.md。Triggers: 修正して, 育てて, ブラッシュアップ, skill-growing. description は skill-builder と同様に日英ハイブリッドを標準。"
 metadata:
-  last_verified: "2026-03-29"
+  last_verified: "2026-03-31"
 ---
 
 # スキルを育てる（差分駆動・置換型ループ）

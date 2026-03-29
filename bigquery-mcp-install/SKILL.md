@@ -1,6 +1,8 @@
 ---
 name: bigquery-mcp-install
-description: BigQuery MCP（genai-toolbox）のインストールを一気通貫で実行する。toolbox バイナリのダウンロード、.cursor/mcp.json への設定追加、ADC 認証の確認を自動化する。「BigQuery MCP をインストールして」「BigQuery MCP をセットアップして」「toolbox を入れて」と依頼されたときに参照する。
+description: "BigQuery MCP（genai-toolbox）のインストールを一気通貫で実行する。toolbox バイナリのダウンロード、.cursor/mcp.json への設定追加、ADC 認証の確認を自動化する。「BigQuery MCP をインストールして」「BigQuery MCP をセットアップして」「toolbox を入れて」と依頼されたときに参照する。"
+metadata:
+  last_verified: "2026-03-31"
 ---
 
 # BigQuery MCP インストールスキル

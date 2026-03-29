@@ -1,6 +1,8 @@
 ---
 name: python-venv-requirements
-description: Python の依存関係をプロジェクトローカルの venv と requirements.txt で管理する。venv の作り方・有効化・pip install -r requirements.txt の流れを統一し、グローバル Python を汚染しない。トリガーは「venv」「仮想環境」「requirements.txt」「pip install」「グローバルに入れたくない」「Python 環境をプロジェクトで」など。
+description: "Python の依存関係をプロジェクトローカルの venv と requirements.txt で管理する。venv の作り方・有効化・pip install -r requirements.txt の流れを統一し、グローバル Python を汚染しない。トリガーは「venv」「仮想環境」「requirements.txt」「pip install」「グローバルに入れたくない」「Python 環境をプロジェクトで」など。"
+metadata:
+  last_verified: "2026-03-31"
 ---
 
 # Python: venv + requirements.txt

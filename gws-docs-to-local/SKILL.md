@@ -1,7 +1,8 @@
 ---
 name: gws-docs-to-local
-description: gws で Google Docs を扱う汎用手順。読取で JSON と Markdown をローカルに出力する。「Google Docs を保存して」「gws でドキュメント取得」「Docs を Markdown でエクスポート」「文字起こしをローカルに」で発動。
-last_verified: 2026-03-17
+description: "gws で Google Docs を扱う汎用手順。読取で JSON と Markdown をローカルに出力する。「Google Docs を保存して」「gws でドキュメント取得」「Docs を Markdown でエクスポート」「文字起こしをローカルに」で発動。"
+metadata:
+  last_verified: "2026-03-17"
 ---
 
 # gws で Google Docs を扱う（読取・ローカル出力）

@@ -1,6 +1,8 @@
 ---
 name: app-code-apis-not-cli
-description: アプリ・サービスコードでは CLI（gws・gcloud・curl 等）を subprocess で常時依存にせず、公式 HTTP API または SDK を使う。バッチ scripts は例外。Drive・Gemini・GCP 連携時に従う。
+description: "アプリ・サービスコードでは CLI（gws・gcloud・curl 等）を subprocess で常時依存にせず、公式 HTTP API または SDK を使う。バッチ scripts は例外。Drive・Gemini・GCP 連携時に従う。"
+metadata:
+  last_verified: "2026-03-31"
 ---
 
 # アプリは API、CLI は scripts に限定

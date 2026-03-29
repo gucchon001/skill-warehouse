@@ -1,7 +1,8 @@
 ---
 name: project-charter
-description: PJC・プロジェクトチャーターを references（考え方・構成・チェックリスト・シートレイアウト）に沿って作成し、gws または Sheets API で指定スプレッドシートへ反映する。セル配置（ラベル B/D/G・値 C/E/H）と背景・目的（AsIs/ToBe・卒業/歓迎要件）を厳守。「pjcを作って」「プロジェクトチャーター」「チャーターをgwsで反映」「シートに書いて」で発動。
-last_verified: 2026-03-27
+description: "PJC・プロジェクトチャーターを references（考え方・構成・チェックリスト・シートレイアウト）に沿って作成し、gws または Sheets API で指定スプレッドシートへ反映する。セル配置（ラベル B/D/G・値 C/E/H）と背景・目的（AsIs/ToBe・卒業/歓迎要件）を厳守。「pjcを作って」「プロジェクトチャーター」「チャーターをgwsで反映」「シートに書いて」で発動。"
+metadata:
+  last_verified: "2026-03-27"
 ---
 
 # プロジェクトチャーター作成スキル

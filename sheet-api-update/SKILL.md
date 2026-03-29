@@ -1,7 +1,8 @@
 ---
 name: sheet-api-update
-description: スプレッドシートを Google Sheets API（Node / googleapis）で更新する手順を案内する。WBS・課題管理表・任意シートへの JSON 書き込み時に使う。書き込みは gws ではなく API のみ使用。
-last_verified: 2026-03-17
+description: "スプレッドシートを Google Sheets API（Node / googleapis）で更新する手順を案内する。WBS・課題管理表・任意シートへの JSON 書き込み時に使う。書き込みは gws ではなく API のみ使用。"
+metadata:
+  last_verified: "2026-03-17"
 ---
 
 # スプレッドシートを API で更新する

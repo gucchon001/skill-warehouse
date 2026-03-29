@@ -1,7 +1,8 @@
 ---
 name: gws-params-encoding
-description: gws を安定的に使うため、--params に JSON を渡すときターミナル・シェルで壊れやすい文字を避ける方法を案内する。「gws で JSON が壊れる」「Node から gws を呼ぶ」で発動。
-last_verified: 2026-03-17
+description: "gws を安定的に使うため、--params に JSON を渡すときターミナル・シェルで壊れやすい文字を避ける方法を案内する。「gws で JSON が壊れる」「Node から gws を呼ぶ」で発動。"
+metadata:
+  last_verified: "2026-03-17"
 ---
 
 # gws を安定的に使う（--params の渡し方）

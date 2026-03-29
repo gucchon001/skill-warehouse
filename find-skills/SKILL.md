@@ -1,9 +1,9 @@
 ---
 name: find-skills
-description: Discovers the best Agent Skill for a task from natural language. Searches the user's global and project skill libraries (YAML descriptions), then optionally the public directory (skills.sh, npx skills find). Use when the user asks which skill to use, whether a skill exists for X, skill recommendations, or "画像最適化のスキルはある？" style queries.
+description: "Discovers the best Agent Skill for a task from natural language. Searches the user's global and project skill libraries (YAML descriptions), then optionally the public directory (skills.sh, npx skills find). Use when the user asks which skill to use, whether a skill exists for X, skill recommendations, or 「画像最適化のスキルはある？」style queries."
 metadata:
+  last_verified: "2026-03-31"
   version: "1.0.0"
-  last_verified: "2026-03-29"
 ---
 
 # find-skills（スキルのためのスキル）

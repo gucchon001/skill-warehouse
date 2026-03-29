@@ -1,6 +1,8 @@
 ---
 name: dataplex-catalog-entry-names
-description: Dataplex Universal Catalog でエントリを更新・参照するとき、Data Catalog API と Dataplex API では**エントリ名の形式が異なる**ため、Lookup で得た名前をそのまま Dataplex に渡すと 403/404 になる。正しい形式でエントリ名を構築するか、Dataplex 用の解決方法を使う。トリガーは「Dataplex 403」「Data Catalog から Dataplex 更新」「カタログ同期で 403」「BigQuery のメタデータの利用」など。
+description: "Dataplex Universal Catalog でエントリを更新・参照するとき、Data Catalog API と Dataplex API では**エントリ名の形式が異なる**ため、Lookup で得た名前をそのまま Dataplex に渡すと 403/404 になる。正しい形式でエントリ名を構築するか、Dataplex 用の解決方法を使う。トリガーは「Dataplex 403」「Data Catalog から Dataplex 更新」「カタログ同期で 403」「BigQuery のメタデータの利用」など。"
+metadata:
+  last_verified: "2026-03-31"
 ---
 
 # Dataplex / Data Catalog エントリ名の使い分け

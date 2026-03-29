@@ -1,6 +1,8 @@
 ---
 name: cursor-rules
 description: "Cursor `.cursor/rules/*.mdc` を一括で扱う。.mdc の YAML（description / globs / alwaysApply）、適用範囲の判断、本文の短さ・1 関心・例示。Triggers: Cursor rules, .mdc, alwaysApply, globs, ルール, frontmatter, サブエージェントではない。"
+metadata:
+  last_verified: "2026-03-31"
 ---
 
 # Cursor Rules（`.mdc`）

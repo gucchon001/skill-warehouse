@@ -1,6 +1,8 @@
 ---
 name: supabase-postgres-best-practices
-description: Postgres / Supabase のパフォーマンス・セキュリティ監査の公式ベストプラクティス。SQL・スキーマ・RLS・インデックスのレビュー、接続・プール設計、EXPLAIN 観点の整理で使う。DB 専門家を雇う代わりのチェックリストとして参照する。
+description: "Postgres / Supabase のパフォーマンス・セキュリティ監査の公式ベストプラクティス。SQL・スキーマ・RLS・インデックスのレビュー、接続・プール設計、EXPLAIN 観点の整理で使う。DB 専門家を雇う代わりのチェックリストとして参照する。"
+metadata:
+  last_verified: "2026-03-31"
 ---
 
 # Supabase Postgres Best Practices（公式スキル連携）

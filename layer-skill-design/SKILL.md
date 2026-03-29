@@ -1,6 +1,6 @@
 ---
 name: layer-skill-design
-description: スキルを「思考・制作・データ」のレイヤーに分け、データレイヤーは prompt/ と os/ で整理。既存の再配置は skill-growing（検証・置換・フォルダ単位）と併用。Triggers: レイヤーで整理, フォルダ構成 レイヤー型, プロンプト配置 統一, layer-skill-design.
+description: "スキルを「思考・制作・データ」のレイヤーに分け、データレイヤーは prompt/ と os/ で整理。既存の再配置は skill-growing（検証・置換・フォルダ単位）と併用。Triggers: レイヤーで整理, フォルダ構成 レイヤー型, プロンプト配置 統一, layer-skill-design."
 metadata:
   last_verified: "2026-03-30"
 ---

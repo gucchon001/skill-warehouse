@@ -1,7 +1,8 @@
 ---
 name: gws-drive
-description: gws（Google Workspace CLI）で Google Drive（マイドライブ＋共有ドライブ）に接続し、フォルダ・ファイルの一覧取得・検索・メタデータ取得・アップロード・エクスポートなどの操作を行う。トリガーは「gws で Drive に接続して」「Drive のフォルダ一覧を出して」「共有ドライブの一覧」「共有ドライブ内のファイルを見たい」など。
-last_verified: 2026-03-19
+description: "gws（Google Workspace CLI）で Google Drive（マイドライブ＋共有ドライブ）に接続し、フォルダ・ファイルの一覧取得・検索・メタデータ取得・アップロード・エクスポートなどの操作を行う。トリガーは「gws で Drive に接続して」「Drive のフォルダ一覧を出して」「共有ドライブの一覧」「共有ドライブ内のファイルを見たい」など。"
+metadata:
+  last_verified: "2026-03-19"
 ---
 
 # gws で Google Drive にアクセス・操作する

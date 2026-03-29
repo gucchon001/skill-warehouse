@@ -1,7 +1,8 @@
 ---
 name: gws-sheets-to-local
-description: gws で Google スプレッドシートを読み込み、指定範囲の値をローカルに JSON または CSV で出力する。--params は引数配列で渡す（30パターン検証済み）。「スプレッドシートを読み込んで」「gws でシート取得」で発動。
-last_verified: 2026-03-19
+description: "gws で Google スプレッドシートを読み込み、指定範囲の値をローカルに JSON または CSV で出力する。--params は引数配列で渡す（30パターン検証済み）。「スプレッドシートを読み込んで」「gws でシート取得」で発動。"
+metadata:
+  last_verified: "2026-03-19"
 ---
 
 # gws でスプレッドシートを読む（読取・ローカル出力）

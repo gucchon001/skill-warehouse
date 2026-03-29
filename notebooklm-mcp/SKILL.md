@@ -1,7 +1,8 @@
 ---
 name: notebooklm-mcp
-description: NotebookLM 連携 MCP（PyPI notebooklm-mcp-cli）の導入・認証・stdio 登録・接続トラブル・ツール選択を案内する。NotebookLM MCP、MCP 接続エラー、nlm login、notebook_list、ソース追加・削除、notebook_query、リサーチ、スタジオ生成、日本語文字化け、サーバー立ち上げ直しを依頼されたときに使う。
-last_verified: 2026-03-21
+description: "NotebookLM 連携 MCP（PyPI notebooklm-mcp-cli）の導入・認証・stdio 登録・接続トラブル・ツール選択を案内する。NotebookLM MCP、MCP 接続エラー、nlm login、notebook_list、ソース追加・削除、notebook_query、リサーチ、スタジオ生成、日本語文字化け、サーバー立ち上げ直しを依頼されたときに使う。"
+metadata:
+  last_verified: "2026-03-21"
 ---
 
 # NotebookLM MCP

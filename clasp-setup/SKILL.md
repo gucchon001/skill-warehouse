@@ -1,6 +1,8 @@
 ---
 name: clasp-setup
 description: "Initializes a GAS project with clasp: new spreadsheet, binding, .clasp.json, rootDir src/, appsscript.json OAuth scopes, clasp open, starter Code.js. Use for GAS + Sheets setup, clasp create, or new GAS dev environment."
+metadata:
+  last_verified: "2026-03-31"
 ---
 
 # clasp-setup

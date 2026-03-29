@@ -60,6 +60,8 @@ metadata:
 - **description**: 実態と一致しているか。**日英ハイブリッド**で不足している言語側のトリガーを足すか、冗長なら圧縮（**skill-builder** の「description（日英ハイブリッド）」§に合わせる）。**手順・多段フローの要約が description に残っていないか**確認し、あれば **Description Trap**（`skill-folder-spec.md`）どおり **第2層・`references/` へ移す**。
 - **last_verified**: 今日の日付（`YYYY-MM-DD`）。内容を変えなかった読み直しだけなら据え置き可だが、**賞味期限ルール**を満たすよう方針に合わせる。
 
+**一括整形（任意）**: 正本リポジトリ（skill-warehouse）で `node scripts/normalize-skill-frontmatter.mjs` を実行すると、各 `SKILL.md` の `metadata.last_verified` と `name` / `description` の表記を揃えられる（実行後は差分を確認してからコミットする）。
+
 ## Troubleshooting
 
 ### エラー: スキルが読み込まれない・参照先が無い

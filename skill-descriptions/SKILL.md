@@ -11,6 +11,7 @@ The description is used for skill discovery. Be specific and include trigger ter
 - **Third person**: "Processes Excel files and generates reports" — not "I can help you..." or "You can use this to..."
 - **WHAT**: What the skill does (specific capabilities).
 - **WHEN**: When the agent should use it (trigger scenarios).
+- **Description Trap**: Do **not** put step-by-step workflow or multi-phase process summaries in `description`. Keep triggers and keywords here; put How in the body and `references/` (see **skill-folder-spec.md** and **skill-builder**).
 
 ## 日英ハイブリッド（このリポジトリの標準）
 

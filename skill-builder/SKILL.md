@@ -58,6 +58,18 @@ description: "新規 Agent スキルを公式構成で設計・生成（SKILL.md
 - **公式上限 1024 文字**と **WHAT + WHEN** は [skill-folder-spec.md](references/skill-folder-spec.md) §2.1 どおり。
 - **育成・修正時**（**skill-growing**）も同じ方針で `description` を**置換**し、実態とズレをなくす。
 
+### description の罠（公式の第1層と整合）
+
+`description` に**手順の要約や多段ワークフローの中身**を書くと、モデルが**本文を読まず短絡**しうる。公式の「第1層は軽く」と [skill-folder-spec.md](references/skill-folder-spec.md) の **「description の罠」**に従い、**トリガー・キーワード・WHAT/WHEN** に寄せ、**How の詳細は第2層・`references/`** に置く。
+
+### `name` の付け方（補足）
+
+**kebab-case**・フォルダ名一致は必須（spec §2.1）。あわせて **タスクが一目で分かる語**（例: `pdf-form-extraction`）を選び、**曖昧な `helper` / `utils` は避ける**。予約語・禁止は**ホスト公式**を確認。
+
+### 発見の補助・任意パターン
+
+`CLAUDE.md` へのキーワード対応、強い禁止文、開始宣言などは **[references/discovery-and-optional-patterns.md](references/discovery-and-optional-patterns.md)** に整理。**公式必須ではない**ものをそこに分離している。
+
 ## スキル作成の手順（5 段階）
 
 ### 0. スコープ・粒度の決定（設計方針）
@@ -75,7 +87,7 @@ description: "新規 Agent スキルを公式構成で設計・生成（SKILL.md
 ### 1. 要件の整理
 
 - **名前（name）**: **kebab-case**（小文字・数字・ハイフンのみ）。**スペース・アンダースコア・大文字は使わない**。フォルダ名と一致させる。
-- **description**: **何ができて、どんな依頼で起動するか**＋**具体トリガー**。**日英ハイブリッド**（上記「description（日英ハイブリッド）」§）。1024 文字以内。**短さより発火に必要なフレーズを優先**。
+- **description**: **何ができて、どんな依頼で起動するか**＋**具体トリガー・キーワード**。**日英ハイブリッド**（上記 §）。**手順の要約は書かない**（罠回避）。1024 文字以内。**短さより発火に必要なフレーズを優先**。
 - 一度きりのタスクや要件が頻繁に変わるものはスキル化しない（詳細は `references/skill-creator-and-official.md`）。
 
 ### 2. テンプレートの生成
@@ -87,7 +99,7 @@ description: "新規 Agent スキルを公式構成で設計・生成（SKILL.md
 
 ### 3. カスタマイズ
 
-- **description**: 抽象語だけにしない。機能とトリガーを具体化。**日英ハイブリッド**で抜けがある方を足す。
+- **description**: 抽象語だけにしない。機能とトリガーを具体化。**日英ハイブリッド**で抜けがある方を足す。**手順が description に染み出していたら第2層へ戻す**。
 - **本文**: **命令形**（「To do X, do Y」）。長い説明は第3層へ移し、SKILL には「参照: references/xxx.md」のみ。
 
 ### 4. 簡易検証（作成後に確認）

@@ -11,13 +11,13 @@ metadata:
 
 **1 スキル = 1 ディレクトリ**（標準ツリー: `SKILL.md` → `scripts/` → `references/` → `assets/`。不要なサブフォルダは作らない）。編集は **常にフォルダ根を単位**とし、**SKILL.md だけをバラで扱わない**。
 
-**正規仕様（各フォルダの役割・禁止・Troubleshooting の型・3 層・検証 3 観点・ホスト別配置・ルール同期）**: **skill-builder** をインストールしているホストでは必ず Read — `skill-builder/references/skill-folder-spec.md`（例: `~/.cursor/skills/...`、`~/.claude/skills/...` など**実際に skill-builder があるパス**）。一次情報: [公式 PDF](https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf)、[Agent Skills overview](https://docs.anthropic.com/en/docs/agents-and-tools/agent-skills/overview)。
+**正規仕様（各フォルダの役割・禁止・Troubleshooting の型・3 層・検証 3 観点・ホスト別配置・ルール同期）**: **skill-builder** をインストールしているホストでは必ず Read — `skill-builder/references/skill-folder-spec.md`（例: `~/.cursor/skills/...`、`~/.claude/skills/...` など**実際に skill-builder があるパス**）。一次情報: [公式 PDF](https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf)、[Agent Skills overview](https://docs.anthropic.com/en/docs/agents-and-tools/agent-skills/overview)。**発見補助・CLAUDE.md 対応・任意の強い禁止文など（公式必須ではない）**: `skill-builder/references/discovery-and-optional-patterns.md`。
 
 ### 育成時のフォルダ別ルール
 
 | 対象 | 厳守 |
 |------|------|
-| **SKILL.md** | 第1層を肥大化させない。第2層は命令形の核心のみ。**`## Troubleshooting` は `### エラー:` + 原因 + 対処**（典型数件）。長い列挙は `references/` へ退避。**`description` は skill-builder と同じく日英ハイブリッド**（日本語トリガー + 英語キーワード、1024 字・WHAT/WHEN）。 |
+| **SKILL.md** | 第1層を肥大化させない。第2層は命令形の核心のみ。**`## Troubleshooting` は `### エラー:` + 原因 + 対処**（典型数件）。長い列挙は `references/` へ退避。**`description` は skill-builder と同じく日英ハイブリッド**（日本語トリガー + 英語キーワード、1024 字・WHAT/WHEN）。**description に手順要約を置かない**（Description Trap）。 |
 | **references/** | 長文化・仕様・エラー一覧の**正本**。ファイル分割はトピック単位。SKILL からパスで参照。 |
 | **scripts/** | 実行可能性・秘密不含を維持。変更時は SKILL 内の**実行例・前提**を同期。 |
 | **assets/** | パスと用途が SKILL の記述と一致しているか確認。大きな説明は references へ。 |
@@ -55,7 +55,7 @@ metadata:
 
 更新後、対象スキルのフロントマターを更新する:
 
-- **description**: 実態と一致しているか。**日英ハイブリッド**で不足している言語側のトリガーを足すか、冗長なら圧縮（**skill-builder** の「description（日英ハイブリッド）」§に合わせる）。
+- **description**: 実態と一致しているか。**日英ハイブリッド**で不足している言語側のトリガーを足すか、冗長なら圧縮（**skill-builder** の「description（日英ハイブリッド）」§に合わせる）。**手順・多段フローの要約が description に残っていないか**確認し、あれば **Description Trap**（`skill-folder-spec.md`）どおり **第2層・`references/` へ移す**。
 - **last_verified**: 今日の日付（`YYYY-MM-DD`）。内容を変えなかった読み直しだけなら据え置き可だが、**賞味期限ルール**を満たすよう方針に合わせる。
 
 ## Troubleshooting

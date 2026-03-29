@@ -29,7 +29,6 @@
 |--------|------|
 | [**find-skills**](./find-skills/) | 自然言語で「〇〇向けのスキルは？」と探す。ローカルの `SKILL.md` の `description` を優先し、必要なら skills.sh 等の公開ディレクトリを案内。 |
 | [**skills-multi-host-sync**](./skills-multi-host-sync/) | 正本 1 つに Cursor / Claude / Antigravity のグローバル `skills` をジャンクションまたはシンボリックリンクで揃える。Git commit/push 用スクリプト同梱。「スキルを同期して」で発火想定。 |
-| [**skills-sync-cursor-claude**](./skills-sync-cursor-claude/) | Cursor と Claude Code のグローバル `skills` だけを同一正本に揃える（2 ホスト向けの絞り込み版）。 |
 
 ## 2. スキルの設計・作成・移行
 
@@ -144,4 +143,4 @@
 
 ## 件数
 
-上記グループに含まれるスキルは **57** 件（各フォルダに `SKILL.md` あり）。プロジェクト固有の `.cursor/skills`（業務アプリ用）は本リポジトリには含めていません。
+上記グループに含まれるスキルは **56** 件（各フォルダに `SKILL.md` あり）。プロジェクト固有の `.cursor/skills`（業務アプリ用）は本リポジトリには含めていません。

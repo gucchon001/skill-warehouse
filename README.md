@@ -62,6 +62,7 @@
 | [**vibesec**](./vibesec/) | Web アプリのセキュリティ意識・簡易監査。 |
 | [**ui-frontend-patterns**](./ui-frontend-patterns/) | フロントのコンポーネント・a11y・視覚階層の基準。 |
 | [**dashboard-first-view-ux**](./dashboard-first-view-ux/) | ダッシュボードのファーストビューと情報優先順位。 |
+| [**automated-2stage-review**](./automated-2stage-review/) | PR・実装の **2 段レビュー**（仕様準拠 → 合格後のみコード品質）。サブエージェントと連携。 |
 
 ## 6. Google Workspace（gws）と Sheets API
 

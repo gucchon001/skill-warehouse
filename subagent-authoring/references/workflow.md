@@ -2,6 +2,8 @@
 
 親スキル: **subagent-authoring** の `SKILL.md`。
 
+0. **オーケストレーション**: 複数サブで協調させる場合は先に [orchestration-and-patterns.md](orchestration-and-patterns.md) でパターン（分離・順序・ゲート）を決める。親 **Agent Skill** に遷移を書く。
+
 1. **スコープ**: プロジェクト用かユーザー用か決める（[locations.md](locations.md)）。
 2. **ファイル作成**: ホストの `agents/` 相当に `.md` を置く（[format.md](format.md)）。
 3. **フロントマター**: `name`（小文字・ハイフン）、`description`（[descriptions.md](descriptions.md)）。Claude Code では公式どおり任意キー（`tools` 等）を検討。

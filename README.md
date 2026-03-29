@@ -45,7 +45,7 @@
 | スキル | 概要 |
 |--------|------|
 | [**cursor-rules**](./cursor-rules/) | `.cursor/rules/*.mdc` の形式・`alwaysApply` / `globs`・本文の書き方（旧 rule-format / rule-scope / rule-authoring を統合）。 |
-| [**subagent-authoring**](./subagent-authoring/) | サブエージェント定義の執筆・配置・形式・手順。**Cursor / Claude Code / Antigravity** は `references/locations.md` 等で分離（旧 subagent-* 4 本を統合）。 |
+| [**subagent-authoring**](./subagent-authoring/) | サブエージェント定義の執筆・配置・形式・手順。**マルチエージェント運用**（分離実行・協調・ゲート・並列リサーチ）は `references/orchestration-and-patterns.md`。ホスト別パスは `locations.md`（旧 subagent-* 4 本を統合）。 |
 
 ## 4. エディタ設定（VS Code / Cursor）
 

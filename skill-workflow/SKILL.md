@@ -14,7 +14,7 @@ description: End-to-end workflow for creating an Agent Skill (discovery, design,
    - References one level deep
    - No time-sensitive wording
 
-Apply rule-authoring mindset: one concern per skill where possible; split instead of one large skill.
+Apply **cursor-rules** mindset (one concern): one concern per skill where possible; split instead of one large skill.
 
 ## Troubleshooting
 

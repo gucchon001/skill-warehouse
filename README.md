@@ -50,9 +50,7 @@
 
 | スキル | 概要 |
 |--------|------|
-| [**rule-authoring**](./rule-authoring/) | `.cursor/rules` の書き方（長さ・単一関心・例示）。 |
-| [**rule-format**](./rule-format/) | `.mdc` のフロントマターと構造。 |
-| [**rule-scope**](./rule-scope/) | `alwaysApply` と `globs` の選び方。 |
+| [**cursor-rules**](./cursor-rules/) | `.cursor/rules/*.mdc` の形式・`alwaysApply` / `globs`・本文の書き方（旧 rule-format / rule-scope / rule-authoring を統合）。 |
 | [**subagent-descriptions**](./subagent-descriptions/) | サブエージェントの description の書き方。 |
 | [**subagent-format**](./subagent-format/) | サブエージェント `.md` のフォーマット。 |
 | [**subagent-locations**](./subagent-locations/) | プロジェクト vs ユーザー配置と優先順位。 |
@@ -139,4 +137,4 @@
 
 ## 件数
 
-上記グループに含まれるスキルは **52** 件（各フォルダに `SKILL.md` あり）。プロジェクト固有の `.cursor/skills`（業務アプリ用）は本リポジトリには含めていません。
+上記グループに含まれるスキルは **50** 件（各フォルダに `SKILL.md` あり）。プロジェクト固有の `.cursor/skills`（業務アプリ用）は本リポジトリには含めていません。

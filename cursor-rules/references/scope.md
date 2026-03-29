@@ -1,17 +1,6 @@
----
-name: rule-scope
-description: Decides when a Cursor rule should always apply vs apply to specific files. Use when choosing alwaysApply or globs for a new rule, or when asking "should this rule apply to all files or only some?"
----
-# Rule Scope Configuration
+# `alwaysApply` と `globs` の選び方
 
-## 関連スキル（Cursor ルール）
-
-| スキル | 役割 |
-|--------|------|
-| **rule-scope**（本スキル） | **alwaysApply** vs **globs** の判断 |
-| **rule-format** | フロントマター構文 |
-| **rule-authoring** | 本文の書き方 |
-| **skill-builder** | オンデマンド手順は**スキル**として新規作成 |
+親スキル: **cursor-rules** の `SKILL.md`。
 
 ## Always Apply
 
@@ -51,17 +40,16 @@ Examples: `**/*.ts`, `**/*.tsx`, `backend/**/*.py`, `**/components/**/*.tsx`.
 
 **原因**: 本当はファイル種別だけに効かせたかった。
 
-**対処**: `alwaysApply: false` にし、**globs** で対象を限定する（本スキル「Apply to Specific Files」）。
+**対処**: `alwaysApply: false` にし、**globs** で対象を限定する（上記「Apply to Specific Files」）。
 
 ### エラー: globs なのにルールが付かない／付きすぎる
 
 **原因**: パターン誤り、または `alwaysApply` と併用の誤解。
 
-**対処**: `alwaysApply: true` のときは **globs を省略**する。パターンは **rule-format** の例を参照して修正。
+**対処**: `alwaysApply: true` のときは **globs を省略**する。パターンは [format.md](format.md) の例を参照して修正。
 
 ### エラー: この内容はルールではなくスキルの方がよい
 
 **原因**: トリガーが「ユーザーが〇〇と言ったとき」の方が自然。
 
 **対処**: **skill-builder** でスキル化する（本文はルールから転記し、YAML `description` にトリガーを明記）。
-

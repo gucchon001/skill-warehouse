@@ -13,6 +13,7 @@
 ## Rules（ルール）
 
 - **典型**: Cursor の `.cursor/rules/*.mdc`（`alwaysApply` や `globs` で適用範囲を指定）。
+- **実装の細目**（形式・スコープ・本文の書き方）: スキルライブラリに **cursor-rules** がある場合はそちらを Read（本 skill-warehouse では `rule-format` / `rule-scope` / `rule-authoring` を統合したスキル）。
 - **向いているもの**: コーディング規約、Git／テスト方針、プロジェクト固有の前提、文体。
 - **スキルとの境界**: 長大な「手順書」や **特定タスクだけ**で使う詳細ワークフローは、ルールに詰め込むより **スキル + `references/`** の方が保守しやすいことが多い（Progressive disclosure）。
 

@@ -28,6 +28,8 @@ description: "新規 Agent スキルを公式構成で設計・生成（SKILL.md
 
 **配置**（グローバル／プロジェクト）だけホストで異なる。**`SKILL.md` 単体をフォルダ外に置かない**。`scripts/` 等は不要なら作らない。パス一覧・マルチホスト同期・ルールの扱いは [references/skill-folder-spec.md](references/skill-folder-spec.md) の **§9・§10**。
 
+**Rules・Hooks・Skills の違い**（ルールに書くかスキル化するか・フックとの混同防止）: [references/rules-hooks-skills.md](references/rules-hooks-skills.md)（Cursor 等を前提とした**ホスト補足**。公式 Skills は Skills 本体が一次）。
+
 ## Progressive Disclosure（3 層）
 
 実装差は `skill-folder-spec.md` §6。要約のみ:
@@ -161,4 +163,4 @@ description: "新規 Agent スキルを公式構成で設計・生成（SKILL.md
 | [anthropics/skills](https://github.com/anthropics/skills) | 公式例・template |
 | [agentskills.io](https://agentskills.io) | オープン標準 |
 
-**本スキル内のローカル正本**: [references/skill-folder-spec.md](references/skill-folder-spec.md)（上記公式リソースに揃えた厳密仕様）、[references/skill-creator-and-official.md](references/skill-creator-and-official.md)（補足）。
+**本スキル内のローカル正本**: [references/skill-folder-spec.md](references/skill-folder-spec.md)（上記公式リソースに揃えた厳密仕様）、[references/skill-creator-and-official.md](references/skill-creator-and-official.md)（補足）、[references/rules-hooks-skills.md](references/rules-hooks-skills.md)（Rules / Hooks / Skills の対比・スキル化判断）。

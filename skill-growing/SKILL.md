@@ -1,7 +1,8 @@
 ---
 name: skill-growing
-description: 既存スキルフォルダを修正・ブラッシュアップするときの絶対ルール。正規仕様は skill-builder の references/skill-folder-spec.md（公式 PDF・Anthropic ドキュメントに整合）。検証・置換・PD・分割・Troubleshooting 形式・同期。「修正して」「育てて」、エラー時、last_verified 30日超で発動。
-last_verified: 2026-03-21
+description: "既存スキルフォルダの修正・ブラッシュアップ（検証・置換・PD・分割・Troubleshooting・description 同期）。仕様は skill-builder の skill-folder-spec.md。Triggers: 修正して, 育てて, ブラッシュアップ, skill-growing. description は skill-builder と同様に日英ハイブリッドを標準。"
+metadata:
+  last_verified: "2026-03-29"
 ---
 
 # スキルを育てる（差分駆動・置換型ループ）
@@ -16,7 +17,7 @@ last_verified: 2026-03-21
 
 | 対象 | 厳守 |
 |------|------|
-| **SKILL.md** | 第1層を肥大化させない。第2層は命令形の核心のみ。**`## Troubleshooting` は `### エラー:` + 原因 + 対処**（典型数件）。長い列挙は `references/` へ退避。 |
+| **SKILL.md** | 第1層を肥大化させない。第2層は命令形の核心のみ。**`## Troubleshooting` は `### エラー:` + 原因 + 対処**（典型数件）。長い列挙は `references/` へ退避。**`description` は skill-builder と同じく日英ハイブリッド**（日本語トリガー + 英語キーワード、1024 字・WHAT/WHEN）。 |
 | **references/** | 長文化・仕様・エラー一覧の**正本**。ファイル分割はトピック単位。SKILL からパスで参照。 |
 | **scripts/** | 実行可能性・秘密不含を維持。変更時は SKILL 内の**実行例・前提**を同期。 |
 | **assets/** | パスと用途が SKILL の記述と一致しているか確認。大きな説明は references へ。 |
@@ -54,7 +55,7 @@ last_verified: 2026-03-21
 
 更新後、対象スキルのフロントマターを更新する:
 
-- **description**: 実態と一致しているか。
+- **description**: 実態と一致しているか。**日英ハイブリッド**で不足している言語側のトリガーを足すか、冗長なら圧縮（**skill-builder** の「description（日英ハイブリッド）」§に合わせる）。
 - **last_verified**: 今日の日付（`YYYY-MM-DD`）。内容を変えなかった読み直しだけなら据え置き可だが、**賞味期限ルール**を満たすよう方針に合わせる。
 
 ## Troubleshooting

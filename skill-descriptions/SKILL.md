@@ -12,6 +12,10 @@ The description is used for skill discovery. Be specific and include trigger ter
 - **WHAT**: What the skill does (specific capabilities).
 - **WHEN**: When the agent should use it (trigger scenarios).
 
+## 日英ハイブリッド（このリポジトリの標準）
+
+**skill-builder** と **skill-growing** で統一した方針: `description` は **1 フィールドに日本語と英語を混在**（和文で用途・和文トリガー、英文で製品名・CLI/API・英語キーワード）。詳細は **skill-builder** の「description（日英ハイブリッド）」§。
+
 ## Examples
 
 ```yaml

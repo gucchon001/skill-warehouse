@@ -11,7 +11,7 @@ description: Defines the file format for Cursor rules (.mdc). Use when creating 
 | **rule-format**（本スキル） | `.mdc` の**構文・フロントマター** |
 | **rule-scope** | `alwaysApply` と **globs** の選び方 |
 | **rule-authoring** | 文章の書き方（短さ・例・1 関心） |
-| **migrate-rule-to-skill** | ルールを**スキル化**する条件と手順 |
+| **skill-builder** | ルール本文をベースに**新規スキル**を公式構成で作る |
 
 Rules are `.mdc` files in `.cursor/rules/`.
 

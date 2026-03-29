@@ -9,10 +9,9 @@ description: Source and destination paths for migrating Cursor rules and slash c
 | スキル | 役割 |
 |--------|------|
 | **migrate-locations**（本スキル） | **移行元・移行先パス**の一覧（プロジェクト / ユーザー） |
-| **migrate-rule-to-skill** | `.mdc` ルール 1 件 → `SKILL.md`（本文そのまま） |
-| **migrate-command-to-skill** | スラッシュコマンド `.md` → `SKILL.md` |
 | **rule-format** / **rule-scope** | ルールを**残す**ときの `.mdc` の書き方・適用範囲 |
-| **skill-builder** / **skill-folder-spec.md** | 新規スキルの**公式フォルダ構成** |
+| **skill-builder** / **skill-growing** | `.mdc` や `.md` の内容をベースに**新規スキル**を作る／育てる |
+| **skill-folder-spec.md** | 新規スキルの**公式フォルダ構成**（**skill-builder** 内） |
 
 ## パス一覧
 
@@ -42,5 +41,5 @@ Ignore: `~/.cursor/worktrees`, `~/.cursor/skills-cursor`. Rules can live in nest
 
 **原因**: `alwaysApply` や `globs` 付きルールはスキル化ポリシーと相性が悪い。
 
-**対処**: **migrate-rule-to-skill** の前提（対象外条件）を読む。**常時ガードレール**は `.mdc` のまま **rule-scope** で管理する選択肢もある。
+**対処**: **rule-scope** で「常時 `.mdc`」か判断する。**オンデマンド**なら **skill-builder** で `SKILL.md` を新規作成し、本文をルール／コマンドから移す。
 

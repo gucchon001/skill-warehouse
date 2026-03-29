@@ -45,8 +45,6 @@
 | [**skill-scripts**](./skill-scripts/) | スキル内 `scripts/` の使いどころと品質。 |
 | [**layer-skill-design**](./layer-skill-design/) | 思考 / 制作 / データのレイヤー分けとフォルダ構成。 |
 | [**migrate-locations**](./migrate-locations/) | ルール・スラッシュコマンドから Skills への移行パス。 |
-| [**migrate-rule-to-skill**](./migrate-rule-to-skill/) | 1 件の `.mdc` ルールを Skill に変換。 |
-| [**migrate-command-to-skill**](./migrate-command-to-skill/) | スラッシュコマンド（.md）を Skill に変換。 |
 
 ## 3. Cursor ルールとサブエージェント
 
@@ -143,4 +141,4 @@
 
 ## 件数
 
-上記グループに含まれるスキルは **56** 件（各フォルダに `SKILL.md` あり）。プロジェクト固有の `.cursor/skills`（業務アプリ用）は本リポジトリには含めていません。
+上記グループに含まれるスキルは **54** 件（各フォルダに `SKILL.md` あり）。プロジェクト固有の `.cursor/skills`（業務アプリ用）は本リポジトリには含めていません。

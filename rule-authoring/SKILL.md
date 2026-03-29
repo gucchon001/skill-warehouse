@@ -60,5 +60,5 @@ try {
 
 **原因**: 常時適用か、依頼時だけかが未定義。
 
-**対処**: 常時ガードは **rule-scope** + `.mdc`。オンデマンド手順は **skill-builder** / **migrate-rule-to-skill** を検討。
+**対処**: 常時ガードは **rule-scope** + `.mdc`。オンデマンド手順は **skill-builder** で新規スキル化し、既存の手直しは **skill-growing**。
 

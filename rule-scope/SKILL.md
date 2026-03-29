@@ -11,7 +11,7 @@ description: Decides when a Cursor rule should always apply vs apply to specific
 | **rule-scope**（本スキル） | **alwaysApply** vs **globs** の判断 |
 | **rule-format** | フロントマター構文 |
 | **rule-authoring** | 本文の書き方 |
-| **migrate-rule-to-skill** | 「常時ではなくオンデマンド」ならスキル化の候補 |
+| **skill-builder** | オンデマンド手順は**スキル**として新規作成 |
 
 ## Always Apply
 
@@ -63,5 +63,5 @@ Examples: `**/*.ts`, `**/*.tsx`, `backend/**/*.py`, `**/components/**/*.tsx`.
 
 **原因**: トリガーが「ユーザーが〇〇と言ったとき」の方が自然。
 
-**対処**: **migrate-rule-to-skill** の対象条件を確認し、**skill-builder** でスキル化する。
+**対処**: **skill-builder** でスキル化する（本文はルールから転記し、YAML `description` にトリガーを明記）。
 

@@ -63,6 +63,7 @@
 | [**ui-frontend-patterns**](./ui-frontend-patterns/) | フロントのコンポーネント・a11y・視覚階層の基準。 |
 | [**dashboard-first-view-ux**](./dashboard-first-view-ux/) | ダッシュボードのファーストビューと情報優先順位。 |
 | [**automated-2stage-review**](./automated-2stage-review/) | PR・実装の **2 段レビュー**（仕様準拠 → 合格後のみコード品質）。サブエージェントと連携。 |
+| [**code-review-subagents**](./code-review-subagents/) | **コードレビューをサブエージェントに委譲**（単一 `code-reviewer` または **automated-2stage-review** への振り分け）。 |
 
 ## 6. Google Workspace（gws）と Sheets API
 
@@ -129,4 +130,4 @@
 
 ## 件数
 
-上記グループに含まれるスキルは **39** 件（各フォルダに `SKILL.md` あり）。プロジェクト固有の `.cursor/skills`（業務アプリ用）は本リポジトリには含めていません。
+上記グループに含まれるスキルは **41** 件（各フォルダに `SKILL.md` あり）。プロジェクト固有の `.cursor/skills`（業務アプリ用）は本リポジトリには含めていません。

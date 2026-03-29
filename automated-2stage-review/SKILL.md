@@ -1,6 +1,6 @@
 ---
 name: automated-2stage-review
-description: "PR・実装コードの2段階レビューをオーケストレーションする。第1段 仕様準拠（spec-reviewer）、合格後のみ第2段 コード品質（code-quality-reviewer）。Triggers: 2段階レビュー, spec review then code review, PR review pipeline, automated review, 仕様レビュー 品質レビュー, Claude Code agents."
+description: "PR・実装コードの2段階レビューをオーケストレーションする。第1段 仕様準拠（spec-reviewer）、合格後のみ第2段 コード品質（code-quality-reviewer）。単一サブでのレビューは code-review-subagents。Triggers: 2段階レビュー, spec review then code review, PR review pipeline, automated review, 仕様レビュー 品質レビュー, コードレビュー サブエージェント 2段, Claude Code agents."
 metadata:
   last_verified: "2026-03-31"
 ---
@@ -42,6 +42,7 @@ metadata:
 
 | スキル | 役割 |
 |--------|------|
+| **code-review-subagents** | サブでコードレビュー全般の入口（**単一レビュアー**と本スキルの**2 段**の選び方） |
 | **subagent-authoring** | サブの配置・形式・マルチエージェント運用の一般論 |
 | **skill-builder** / **skill-growing** | 本スキルのカスタマイズ・チーム用 fork の育成 |
 

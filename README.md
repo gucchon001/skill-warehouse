@@ -62,9 +62,7 @@
 
 | スキル | 概要 |
 |--------|------|
-| [**settings-keys**](./settings-keys/) | 「フォントを変えたい」等を `settings.json` のキーにマッピング。 |
-| [**settings-location**](./settings-location/) | OS 別の `settings.json` の場所。 |
-| [**settings-modify**](./settings-modify/) | JSON を壊さず設定を追記・更新。 |
+| [**cursor-user-settings**](./cursor-user-settings/) | `settings.json` の場所（OS 別）・要望→キー対応・JSONC を壊さない編集を 1 本に統合。 |
 
 ## 5. 品質・デバッグ・UI / UX
 
@@ -141,4 +139,4 @@
 
 ## 件数
 
-上記グループに含まれるスキルは **54** 件（各フォルダに `SKILL.md` あり）。プロジェクト固有の `.cursor/skills`（業務アプリ用）は本リポジトリには含めていません。
+上記グループに含まれるスキルは **52** 件（各フォルダに `SKILL.md` あり）。プロジェクト固有の `.cursor/skills`（業務アプリ用）は本リポジトリには含めていません。

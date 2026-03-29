@@ -38,8 +38,7 @@ Windows 例: `%USERPROFILE%\.cursor\skills` ほか同様。macOS/Linux は `$HOM
 - **実行**: `scripts/git-push-canonical.ps1 -CanonicalPath <CANON>`（Windows）。Unix は `scripts/git-push-canonical.sh <CANON>`。ジャンクション作成と一括なら Windows は `sync-global-skills-junctions.ps1 -GitPush`、Unix は `GIT_PUSH=1 ./sync-global-skills-symlinks.sh`。
 - **コミットメッセージ**: 未指定なら `chore: sync skill-warehouse <YYYY-MM-dd HH:mm>`（**スキル貯蔵庫**の同期を表す既定文）。上書きは `-Message`（ps1）または `GIT_COMMIT_MSG`（sh）。
 - **push をしない**: ps1 は `-SkipPush`、sh は `SKIP_PUSH=1`。
-- **リポジトリ名（スキル貯蔵庫）**: GitHub 等のスラッグ例は **`skill-warehouse`**。旧名 `cursor-global-skills` から変える場合は、GitHub の **Settings → General → Repository name** で `skill-warehouse` にリネームし、ローカルで次を実行する（`<user>` は自分の GitHub ユーザー名）:
-  - `git remote set-url origin https://github.com/<user>/skill-warehouse.git`
-- **リモート URL**: 環境ごとに異なる。上記のあとも **`git remote -v` を正**とする。
+- **リポジトリ名（スキル貯蔵庫）**: スラッグは **`skill-warehouse`**。新規作成例: `gh repo create skill-warehouse --private --source=. --remote=origin --push`（`gh` 認証済みのとき）。別アカウント／別名にしたい場合は `git remote set-url origin https://github.com/<user>/<repo>.git`。
+- **リモート URL**: **`git remote -v` を正**とする。旧 `cursor-global-skills` を運用しない場合は `git remote remove origin` のうえ新規 `origin` を追加する。
 
 機密・`.env` をスキル樹に置かない。`.gitignore` で除外する。

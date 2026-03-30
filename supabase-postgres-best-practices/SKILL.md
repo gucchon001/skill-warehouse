@@ -51,7 +51,8 @@ npx skills add https://github.com/supabase/agent-skills --skill supabase-postgre
 - Source: [Supabase Postgres Best Practices - Skills.sh](https://skills.sh/supabase/agent-skills/supabase-postgres-best-practices)
 - メタデータ・更新は GitHub `supabase/agent-skills` の `skills/supabase-postgres-best-practices/SKILL.md` を正とする。
 
-## 関連（本リポジトリ）
+## 関連スキル
 
-- ローカル起動: プロジェクトスキル **supabase-local**
-- 型同期・マイグレーション後: `npm run supabase:types`
+- **ローカル Supabase 起動・`.env.local`・開発用認証モック（汎用）**: グローバル **supabase-local-dev**
+- 個別プロジェクトに **supabase-local** がある場合は、npm スクリプト名・実装パスはそちらを優先
+- 型同期・マイグレーション後: 各プロジェクトの `npm run supabase:types` 等

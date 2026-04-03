@@ -2,10 +2,12 @@
 name: gws-drive
 description: "gws（Google Workspace CLI）で Google Drive（マイドライブ＋共有ドライブ）に接続し、フォルダ・ファイルの一覧取得・検索・メタデータ取得・アップロード・エクスポートなどの操作を行う。トリガーは「gws で Drive に接続して」「Drive のフォルダ一覧を出して」「共有ドライブの一覧」「共有ドライブ内のファイルを見たい」など。"
 metadata:
-  last_verified: "2026-03-19"
+  last_verified: "2026-03-30"
 ---
 
 # gws で Google Drive にアクセス・操作する
+
+**CLI**: [googleworkspace/cli](https://github.com/googleworkspace/cli)（`@googleworkspace/cli`）。概要・認証・環境変数は **gws-params-encoding** の [references/official-googleworkspace-cli.md](../gws-params-encoding/references/official-googleworkspace-cli.md)。
 
 gws の `drive` コマンドで Google Drive API（v3）を呼び出し、マイドライブと共有ドライブの両方でファイル・フォルダの一覧、検索、メタデータ取得、アップロード、エクスポートなどを行う。
 
@@ -16,8 +18,7 @@ gws の `drive` コマンドで Google Drive API（v3）を呼び出し、マイ
 | **gws-params-encoding** | 共通基盤。`--params` / `--json` をシェル・Node から壊さず渡す |
 | **gws-drive**（本スキル） | Drive 一覧・共有ドライブ・検索・アップロード・エクスポート |
 | **gws-docs-to-local** | Google Docs 読取 → ローカル JSON / Markdown |
-| **gws-sheets-to-local** | スプレッドシート values 読取 → ローカル JSON / CSV |
-| **gws-sheets-manage** | シート新規・メタ取得・values 更新（gws 経由） |
+| **gws-sheets** | 読取・新規・メタ・values 更新（gws） |
 
 Sheets を **API（Node 等）で書く**手順は **sheet-api-update**。Drive / Sheets で JSON が壊れるときは **gws-params-encoding** を先に Read。
 
@@ -140,5 +141,6 @@ gws drive drives list --format table
 
 ## 参照
 
+- 公式 CLI（パッケージ・認証・終了コード）: [gws-params-encoding / references/official-googleworkspace-cli.md](../gws-params-encoding/references/official-googleworkspace-cli.md)
 - コマンド一覧・クエリ・権限・エクスポート形式: [references/drive-commands.md](references/drive-commands.md)
 - `--params` の安定した渡し方（ターミナル・Node）: **gws-params-encoding** スキルを参照する。

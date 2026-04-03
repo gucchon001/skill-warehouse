@@ -2,7 +2,7 @@
 name: skills-multi-host-sync
 description: "Unifies one canonical Agent Skills tree (スキル貯蔵庫 / skill-warehouse) for Cursor, Claude Code, and Antigravity via junctions or symlinks; by default runs git commit+push on CANON when .git exists. Triggers: スキルを同期して, スキルを同期, グローバルスキルを同期, スキル同期; sync global skills, sync skills across agents. On trigger, run verify/repair then sync script (includes git push by default)—not prose-only unless execution is blocked."
 metadata:
-  last_verified: "2026-03-29"
+  last_verified: "2026-04-03"
   version: "1.4.0"
 ---
 
@@ -19,7 +19,11 @@ metadata:
 シェルが使えるときは**この順で実行**する。説明のみで終えない（実行不可のときだけ手動コマンドを返す）。
 
 1. **正本** `CANON` を決める。未指定なら `~/.agent-skills`（Windows: `%USERPROFILE%\.agent-skills`）。
-2. **検証**: 3 ルートがすべて `CANON` へのジャンクション（Windows）またはシンボリックリンク（Unix）か確認する。**すでに一致していても**手順 3〜4 を実行する（ジャンクション同期は冪等、**Git は未コミット変更があれば push まで進む**）。
+2. **検証**（クロスプラットフォーム）:
+   ```bash
+   node scripts/verify.mjs [CANON]
+   ```
+   `!` 行がなければ全ホスト OK（手順 4 の Git のみ実行）。`!` 行があれば手順 3 へ。
 3. **修復**（ずれている・実フォルダのままのとき）:
    - 中身のある実フォルダは**必ず** `skills_backup_YYYYMMDD_HHmmss` などへリネームしてから続行する。
    - `CANON` が空に近いなら、**いちばんスキル数が多い**実フォルダから `robocopy` / `cp -a` で `CANON` へ集約する。

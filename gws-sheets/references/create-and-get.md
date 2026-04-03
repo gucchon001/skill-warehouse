@@ -46,4 +46,4 @@ URL が `...?gid=1885307688` のとき、get の結果で `sheets[].properties.s
    ```
    - 各シートの `title`（シート名）、`gridProperties.rowCount` / `columnCount`、`frozenRowCount` が取れる。
 2. **各シートの列構成（ヘッダー行など）**: シート名が分かったら、`sheets spreadsheets values get` で範囲を指定して先頭行や数行を取得する。例: `"<SheetName>!A1:Z1"` または `"<SheetName>!A1:Z5"`。シート名に括弧やスペースがある場合は `'課題管理表(AI)'!A1:Z5` のように単一引用符で囲む。
-3. **スクリプトで実行する場合**: gws の出力は UTF-8。Windows では「gws が見つからない」ときは **gws-sheets-to-local** の reference「実行環境の注意」に従い `gws.cmd` のフルパスを使う。出力をコンソールに print すると日本語が文字化けすることがあるため、**JSON をファイルに書き出して内容を確認**する。
+3. **スクリプトで実行する場合**: gws の出力は UTF-8。Windows では「gws が見つからない」ときは **gws-sheets** の [gws-sheets-values-get.md](gws-sheets-values-get.md)「実行環境の注意」に従い `gws.cmd` のフルパスを使う。出力をコンソールに print すると日本語が文字化けすることがあるため、**JSON をファイルに書き出して内容を確認**する。

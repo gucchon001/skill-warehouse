@@ -101,9 +101,8 @@
 |--------|------|
 | [**gws-drive**](./gws-drive/) | gws で Drive の一覧・検索・アップロード・エクスポート。 |
 | [**gws-docs-to-local**](./gws-docs-to-local/) | Google Docs を JSON / Markdown でローカルに取得。 |
-| [**gws-params-encoding**](./gws-params-encoding/) | gws の `--params` に JSON を渡すときのシェル崩れ対策。 |
-| [**gws-sheets-manage**](./gws-sheets-manage/) | **gws CLI** で作成・一覧・構造・**values update**（バッチ/手動/エージェント）。`--params` は **gws-params-encoding**。 |
-| [**gws-sheets-to-local**](./gws-sheets-to-local/) | シート範囲を JSON / CSV でローカルに出力。 |
+| [**gws-params-encoding**](./gws-params-encoding/) | gws の `--params` に JSON を渡すときのシェル崩れ対策。Node 起動パターン・**約 50 件の検証スクリプト**（`scripts/gws-params-encoding-test.mjs`）。 |
+| [**gws-sheets**](./gws-sheets/) | **gws CLI** で読取（ローカル JSON/CSV）・作成・一覧・構造・**values update**。`--params` は **gws-params-encoding**。 |
 | [**sheet-api-update**](./sheet-api-update/) | **アプリ・本番**からの Sheets API 書き込み（googleapis）。常時依存は gws ではなく API。 |
 
 ## 7. 企画・要件・課題・DB 定義

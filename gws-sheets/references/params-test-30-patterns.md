@@ -1,5 +1,7 @@
 # --params でエラーになりやすい30パターンと検証
 
+より広い **約 50 パターン**の自動検証はグローバル **gws-params-encoding** の [scripts/gws-params-encoding-test.mjs](../../gws-params-encoding/scripts/gws-params-encoding-test.mjs)（要 `GWS_TEST_SPREADSHEET_ID`）を参照。
+
 ## 検証結果
 
 **引数配列**で `--params` を渡す実装（Python: `subprocess.run([gws, ..., "--params", json.dumps(params)], encoding="utf-8")`）で、以下30パターンすべて **unexpected argument なし** で通過することを確認済み。

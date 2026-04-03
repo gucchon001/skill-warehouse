@@ -43,3 +43,13 @@ Windows 例: `%USERPROFILE%\.cursor\skills` ほか同様。macOS/Linux は `$HOM
 - **リモート URL**: **`git remote -v` を正**とする。旧 `cursor-global-skills` を運用しない場合は `git remote remove origin` のうえ新規 `origin` を追加する。
 
 機密・`.env` をスキル樹に置かない。`.gitignore` で除外する。
+かない。`.gitignore` で除外する。
+
+かない。`.gitignore` で除外する。
+
+
+かない。`.gitignore` で除外する。
+
+
+
+かない。`.gitignore` で除外する。

@@ -32,3 +32,7 @@
 | シェル特殊 | `$HOME` `` ` `` `!` スペース・改行・タブ・CRLF |
 | 記号・括弧 | `{}` `[]` `?` `#` `&` `|` `<>` `()` `/` `*` |
 | その他 | 空文字・長い文字列・制御文字・ゼロ幅スペース |
+
+## Node 実装の全体像
+
+`resolveGws`・Windows の `cmd /c` 経由・UTF-8 出力の扱いは **[node-resolve-gws.md](node-resolve-gws.md)** を参照。検証用スクリプトは **[scripts/gws-params-encoding-test.mjs](../scripts/gws-params-encoding-test.mjs)**。

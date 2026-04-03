@@ -19,7 +19,7 @@ gws sheets spreadsheets values update --params '{"spreadsheetId":"<id>","range":
 
 - `spawnSync` で `shell: false` とし、`--params` と `--json` を**別引数**で渡す。
 - JSON が長い場合は一時ファイルに書き、`fs.readFileSync(path, 'utf8')` で読み、その文字列を引数に渡す。
-- Windows では gws が `gws.cmd` のとき `cmd /c` で起動する場合あり。**gws-docs-to-local** や **gws-sheets-to-local** の「実行環境の注意」を参照。
+- Windows では gws が `gws.cmd` のとき `cmd /c` で起動する場合あり。**gws-docs-to-local** や **gws-sheets** の [gws-sheets-values-get.md](gws-sheets-values-get.md)「実行環境の注意」を参照。
 
 ## valueInputOption
 

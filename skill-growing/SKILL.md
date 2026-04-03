@@ -1,8 +1,8 @@
 ---
 name: skill-growing
-description: "既存スキルフォルダの修正・ブラッシュアップ（検証・置換・PD・分割・Troubleshooting・description 同期）。仕様は skill-builder の skill-folder-spec.md。Triggers: 修正して, 育てて, ブラッシュアップ, skill-growing. description は skill-builder と同様に日英ハイブリッドを標準。"
+description: "既存スキルフォルダの修正・ブラッシュアップ（検証・置換・PD・分割・Troubleshooting・description 同期）。仕様は skill-builder の skill-folder-spec.md。Triggers: 修正して, 育てて, ブラッシュアップ, 見直して, 拡張して, skill-growing, refine skill, update skill, revise skill, improve skill, skill maintenance."
 metadata:
-  last_verified: "2026-03-31"
+  last_verified: "2026-04-03"
 ---
 
 # スキルを育てる（差分駆動・置換型ループ）
@@ -35,6 +35,16 @@ metadata:
 ## 実行すべき4つの絶対制約
 
 ### 1. 検証（Execution）
+
+**棚卸しスクリプトで全スキルを一括確認（トークン節約・推奨）**:
+
+```bash
+node <skill-growing のパス>/scripts/audit.mjs [skills-dir]
+# 例（グローバル Claude Code）:
+node ~/.claude/skills/skill-growing/scripts/audit.mjs ~/.claude/skills
+```
+
+出力の `!` 行が要対応スキル（stale / Troubleshooting 未設定 / description 未入力）。**個別スキルを Read する前にこの出力を見て優先順位を決める**。
 
 対象スキルや references に記載された検証手順（スクリプト等）を**必ず最初に実行**する。失敗したら解消を最優先。
 

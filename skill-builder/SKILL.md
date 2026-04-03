@@ -1,8 +1,8 @@
 ---
 name: skill-builder
-description: "新規 Agent スキルを公式構成で設計・生成（SKILL.md / scripts / references / assets）。ホスト共通・配置は skill-folder-spec §9。Triggers: スキルを作って, 新規スキル, skill-builder, create agent skill. New skills only; edits → skill-growing. description は日英ハイブリッドを標準（本スキル「description（日英ハイブリッド）」参照）。"
+description: "新規 Agent スキルを公式構成で設計・生成（SKILL.md / scripts / references / assets）。ホスト共通・配置は skill-folder-spec §9。Triggers: スキルを作って, 新規スキル, スキル追加, skill-builder, create agent skill, build skill, new skill, scaffold skill. New skills only; edits/updates → skill-growing."
 metadata:
-  last_verified: "2026-03-31"
+  last_verified: "2026-04-03"
 ---
 
 # Skill Builder（スキル構築スキル）
@@ -97,11 +97,22 @@ metadata:
 
 ### 2. テンプレートの生成
 
+**スキャフォールドスクリプトを使う（トークン節約・推奨）**:
+
+```bash
+# ドライラン（プレビュー確認。ファイルは作られない）
+node ~/.claude/skills/skill-builder/scripts/scaffold.mjs my-skill ~/.claude/skills --dry-run
+
+# 問題なければ --dry-run を外して実行
+node ~/.claude/skills/skill-builder/scripts/scaffold.mjs my-skill ~/.claude/skills
+```
+
+`--dry-run` でパス・SKILL.md の内容・既存衝突の有無を事前確認できる。確認後に再実行して `<skills-root>/<skill-name>/SKILL.md` を生成する。手動生成する場合は以下に従う。
+
 - **[references/skill-folder-spec.md](references/skill-folder-spec.md) を Read 済み**とし、ツリー順・各フォルダの禁止事項に従う。
-- **`<skill-name>/` を作成**し、直下に **SKILL.md**。`scripts/`・`references/`・`assets/` は必要なら追加（空フォルダだけ作らない）。
-- フロントマターは **name** と **description** 必須。それ以外は `metadata:` 等（`skill-folder-spec.md` §2.1）。
-- **（任意・推奨）** `metadata.last_verified: "YYYY-MM-DD"`（作成日）を付けると、**skill-growing** の賞味期限ルール（30 日）とその後の育成で扱いやすい。
-- 本文見出し・**Troubleshooting の型**（`### エラー:` + **原因** + **対処**）は `skill-folder-spec.md` §2.2–2.3 に合わせる。**SKILL 内は典型 1〜3 件**に留め、それ以上は `references/errors.md` 等へ退避し、SKILL には「詳細は references/…」1 行。
+- **`<skill-name>/` を作成**し、直下に **SKILL.md**。`scripts/`・`references/`・`assets/` は必要なら追加（空フォルダだけ作らない）。**スキル構築に必要なファイル・フォルダ生成はシステムの「不要ファイル禁止」制約の対象外**（スキルフォルダ全体が成果物）。
+- フロントマターは **name** と **description** 必須。`metadata.last_verified: "YYYY-MM-DD"`（作成日）を付ける（**skill-growing** の賞味期限ルール対応）。
+- **`## Troubleshooting` は必ず生成する**（省略禁止）。形式は `skill-folder-spec.md` §2.3: `### エラー:` + **原因** + **対処**、典型 **1〜3 件**。それ以上は `references/errors.md` 等へ退避し、SKILL には「詳細は references/…」1 行を残す。
 
 ### 3. カスタマイズ
 
@@ -117,19 +128,19 @@ metadata:
 - [ ] **（任意）** スキルあり・なしでツール回数や本文長の体感を比較
 - [ ] `## Troubleshooting` に **1〜3 件**（典型）あり、**`### エラー:` + 原因 + 対処** の形（`skill-folder-spec.md` §2.3）。追加項目は `references/` に集約
 - [ ] フォルダ構成が **SKILL.md → scripts/ → references/ → assets/** の意味で矛盾なく、`skill-folder-spec.md` §1 に合致
-- [ ] 配置先: グローバル `~/.cursor/skills/<name>/` または プロジェクト `.cursor/skills/<name>/`
+- [ ] 配置先: ホストに合わせて `references/skill-folder-spec.md` **§9** を確認
 - [ ] **skill-growing** がある場合: 「分割判定」を 1 回実行
 
 ## グローバルかローカルか
 
-| 配置先 | 用途 |
-|--------|------|
-| `~/.cursor/skills/<name>/` | 全プロジェクトで使うスキル |
-| `.cursor/skills/<name>/` | このプロジェクト専用のスキル |
+| スコープ | 用途 |
+|----------|------|
+| グローバル（`~/<host-root>/skills/<name>/`） | 全プロジェクトで使うスキル |
+| プロジェクト（`./<host-dir>/skills/<name>/`） | このプロジェクト専用のスキル |
 
-ユーザーの許可を得てから、選んだパスにディレクトリと SKILL.md を作成する。
+ホスト別の実際のパスは `references/skill-folder-spec.md` **§9** を参照。ユーザーの許可を得てから、選んだパスにディレクトリと SKILL.md を作成する。
 
-複数スキルやプロンプトの配置を整理するときは **layer-skill-design** スキルを参照（プロジェクトに `.cursor/skills/layer-skill-design/` があれば優先、なければ `~/.cursor/skills/layer-skill-design/`）。
+複数スキルやプロンプトの配置を整理するときは **layer-skill-design** スキルを参照。
 
 ## 適さない場面（スキル化しない方がよい場合）
 

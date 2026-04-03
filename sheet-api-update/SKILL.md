@@ -1,6 +1,6 @@
 ---
 name: sheet-api-update
-description: "スプレッドシートの書き込みを Node/googleapis（Sheets API）で行う。アプリ・本番パイプライン・常時依存は API。gws での一発更新は gws-sheets-manage。Triggers: Sheets API, googleapis 書き込み, スプレッドシート API 更新, WBS 課題表 シート反映."
+description: "スプレッドシートの書き込みを Node/googleapis（Sheets API）で行う。アプリ・本番パイプライン・常時依存は API。gws での一発更新は gws-sheets。Triggers: Sheets API, googleapis 書き込み, スプレッドシート API 更新, WBS 課題表 シート反映."
 metadata:
   last_verified: "2026-04-01"
 ---
@@ -14,8 +14,8 @@ metadata:
 | 場面 | 使うスキル |
 |------|------------|
 | **Next.js / バッチ npm スクリプト / 常駐処理**がシートに書く | **本スキル**（Sheets API） |
-| **エージェント・手動・ワンショット**で `gws` を叩いて作成・メタ取得・セル更新する | **gws-sheets-manage**（**gws-params-encoding** 必須） |
-| **セル値の読み取りだけ**ローカルに落とす | **gws-sheets-to-local** |
+| **エージェント・手動・ワンショット**で `gws` を叩いて作成・メタ取得・読取・セル更新する | **gws-sheets**（**gws-params-encoding** 必須） |
+| **セル値の読み取りだけ**ローカルに落とす（gws） | **gws-sheets** § A |
 
 **なぜアプリは API か**: Windows では gws の `--params` / `--json` がシェルで壊れやすく、**コードに gws 書き込みを埋め込む**と不安定になりやすい。CLI での更新は **gws スキル側**の手順に任せる。
 
@@ -59,13 +59,13 @@ await sheets.spreadsheets.values.update({
 
 ## 読み取り
 
-読み取りは **Sheets API** でも **gws**（**gws-sheets-to-local**）でも可。用途に合わせて選ぶ。
+読み取りは **Sheets API** でも **gws**（**gws-sheets**）でも可。用途に合わせて選ぶ。
 
 ## Troubleshooting
 
 ### エラー: gws で読めない・書けない
 
-**対処**: 読取・gws 経路は **gws-sheets-to-local** / **gws-sheets-manage** と **gws-params-encoding**。本スキルは **API 書き込み**向け。
+**対処**: 読取・gws 経路は **gws-sheets** と **gws-params-encoding**。本スキルは **API 書き込み**向け。
 
 ### エラー: Sheets API で更新できない
 
@@ -75,6 +75,6 @@ await sheets.spreadsheets.values.update({
 
 ## 参照
 
-- **gws での**作成・メタ・values 更新: **gws-sheets-manage**
+- **gws での**作成・メタ・読取・values 更新: **gws-sheets**
 - **gws** の JSON 渡し: **gws-params-encoding**
 - アプリでの CLI 回避方針: **app-code-apis-not-cli**

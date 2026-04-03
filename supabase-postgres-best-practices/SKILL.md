@@ -2,7 +2,7 @@
 name: supabase-postgres-best-practices
 description: "Postgres / Supabase のパフォーマンス・セキュリティ監査の公式ベストプラクティス。SQL・スキーマ・RLS・インデックスのレビュー、接続・プール設計、EXPLAIN 観点の整理で使う。DB 専門家を雇う代わりのチェックリストとして参照する。"
 metadata:
-  last_verified: "2026-03-31"
+  last_verified: "2026-04-03"
 ---
 
 # Supabase Postgres Best Practices（公式スキル連携）
@@ -50,6 +50,26 @@ npx skills add https://github.com/supabase/agent-skills --skill supabase-postgre
 
 - Source: [Supabase Postgres Best Practices - Skills.sh](https://skills.sh/supabase/agent-skills/supabase-postgres-best-practices)
 - メタデータ・更新は GitHub `supabase/agent-skills` の `skills/supabase-postgres-best-practices/SKILL.md` を正とする。
+
+## Troubleshooting
+
+### エラー: RLS がローカルでは通るが本番で 403 になる
+
+**原因**: ローカルで `service_role` キーを使っており RLS をバイパスしていた。本番は `anon` キー経由で RLS が評価される。
+
+**対処**: ローカルも `anon` キーで動作確認する。`CREATE POLICY` を `supabase/migrations/` に落とし、`supabase db reset` で検証する。
+
+### エラー: クエリが遅い・N+1 が疑われる
+
+**原因**: インデックス漏れ、または PostgREST の `max_rows` 上限でページング未実装。
+
+**対処**: カテゴリ 1（`query-`）を参照し `EXPLAIN ANALYZE` で確認する。外部キーカラムへの `CREATE INDEX` を `supabase/migrations/` に追加する。
+
+### エラー: スキルの `references/*.md` が見つからない
+
+**原因**: `npx skills add` でルール全文をインストールしていない。
+
+**対処**: `npx skills add https://github.com/supabase/agent-skills --skill supabase-postgres-best-practices` を実行してローカルに取り込む。
 
 ## 関連スキル
 

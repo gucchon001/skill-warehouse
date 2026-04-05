@@ -14,7 +14,7 @@ Anthropic 公式の [skill-creator](https://github.com/anthropics/skills/tree/ma
 
 **実装差**: Claude Code / Claude.ai / Cursor では、スキル本文の読み込みタイミングが完全一致しない可能性がある。SKILL.md の第2層は**単体で手順が通る**ように書く。
 
-**トークン**: 重い情報を `references/` に分離して本文を薄くすると、コンテキスト効率が上がりやすい（ホスト・実装依存）。**原則として「第3層へ寄せるほど本文は薄くできる」**と捉える。
+**トークン**: 重い情報を `references/` に分離して本文を薄くすると、コンテキスト効率が上がりやすい（製品・実装依存）。**原則として「第3層へ寄せるほど本文は薄くできる」**と捉える。
 
 ## 公式 skill-creator の流れ（Claude Code 向け・参考）
 

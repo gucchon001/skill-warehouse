@@ -1,8 +1,8 @@
 ---
 name: skill-builder
-description: "新規 Agent スキルを公式構成で設計・生成（SKILL.md / scripts / references / assets）。ホスト共通・配置は skill-folder-spec §9。Triggers: スキルを作って, 新規スキル, スキル追加, skill-builder, create agent skill, build skill, new skill, scaffold skill. New skills only; edits/updates → skill-growing."
+description: "新規 Agent スキルを公式構成で設計・生成（SKILL.md / scripts / references / assets）。配置・SKILLS_ROOT は skill-folder-spec §9。Triggers: スキルを作って, 新規スキル, スキル追加, skill-builder, create agent skill, build skill, new skill, scaffold skill. New skills only; edits/updates → skill-growing."
 metadata:
-  last_verified: "2026-04-03"
+  last_verified: "2026-04-05"
 ---
 
 # Skill Builder（スキル構築スキル）
@@ -14,7 +14,7 @@ metadata:
 
 ---
 
-あなたは、**Cursor / Claude Code / Antigravity 等で使う Agent スキル**の「スキル設計者」です。**新規**スキルの定義を専門とします。既存スキルの修正・ブラッシュアップは **skill-growing** に委ねる。
+あなたは、**エージェント／IDE／CLI 等で読み込まれる Agent スキル**の「スキル設計者」です。**新規**スキルの定義を専門とします。既存スキルの修正・ブラッシュアップは **skill-growing** に委ねる。
 
 ## スキルは「フォルダ」である（公式の形）
 
@@ -28,9 +28,9 @@ metadata:
 └── assets/               # 任意。テンプレ・非テキスト資産
 ```
 
-**配置**（グローバル／プロジェクト）だけホストで異なる。**`SKILL.md` 単体をフォルダ外に置かない**。`scripts/` 等は不要なら作らない。パス一覧・マルチホスト同期・ルールの扱いは [references/skill-folder-spec.md](references/skill-folder-spec.md) の **§9・§10**。ルール／スラッシュコマンドからスキルへ移すパスは [references/migration-paths.md](references/migration-paths.md)。
+**SKILLS_ROOT**（スキル親ディレクトリ）は製品・環境で異なる。**`SKILL.md` 単体をフォルダ外に置かない**。`scripts/` 等は不要なら作らない。一般形・参考例・複数環境の同期・ルールの扱いは [references/skill-folder-spec.md](references/skill-folder-spec.md) の **§9・§10**。ルール／コマンド定義からスキルへ移す例は [references/migration-paths.md](references/migration-paths.md)（Cursor 系の実パス例。他製品は §9 で読み替え）。
 
-**Rules・Hooks・Skills の違い**（ルールに書くかスキル化するか・フックとの混同防止）: [references/rules-hooks-skills.md](references/rules-hooks-skills.md)（Cursor 等を前提とした**ホスト補足**。公式 Skills は Skills 本体が一次）。
+**Rules・Hooks・Skills の違い**（ルールに書くかスキル化するか・フックとの混同防止）: [references/rules-hooks-skills.md](references/rules-hooks-skills.md)（**製品別機能との対比・参考**。公式 Skills は Skills 本体が一次）。
 
 ## Progressive Disclosure（3 層）
 
@@ -68,11 +68,11 @@ metadata:
 
 ### `name` の付け方（補足）
 
-**kebab-case**・フォルダ名一致は必須（spec §2.1）。あわせて **タスクが一目で分かる語**（例: `pdf-form-extraction`）を選び、**曖昧な `helper` / `utils` は避ける**。予約語・禁止は**ホスト公式**を確認。
+**kebab-case**・フォルダ名一致は必須（spec §2.1）。あわせて **タスクが一目で分かる語**（例: `pdf-form-extraction`）を選び、**曖昧な `helper` / `utils` は避ける**。予約語・禁止は**利用する製品・ランタイムの公式ドキュメント**を確認。
 
 ### 発見の補助・任意パターン
 
-`CLAUDE.md` へのキーワード対応、強い禁止文、開始宣言などは **[references/discovery-and-optional-patterns.md](references/discovery-and-optional-patterns.md)** に整理。**公式必須ではない**ものをそこに分離している。
+プロジェクト指示ファイル（例: `CLAUDE.md`）へのキーワード対応、強い禁止文、開始宣言などは **[references/discovery-and-optional-patterns.md](references/discovery-and-optional-patterns.md)** に整理。**公式必須ではない**ものをそこに分離している。
 
 ## スキル作成の手順（5 段階）
 
@@ -90,7 +90,7 @@ metadata:
 
 ### 1. 要件の整理
 
-- **作成前の観点**（チェックリスト・`skills-cursor` 禁止など）: [references/skill-writing-supplement.md](references/skill-writing-supplement.md)。
+- **作成前の観点**（チェックリスト・予約ディレクトリ回避など）: [references/skill-writing-supplement.md](references/skill-writing-supplement.md)。
 - **名前（name）**: **kebab-case**（小文字・数字・ハイフンのみ）。**スペース・アンダースコア・大文字は使わない**。フォルダ名と一致させる。
 - **description**: **何ができて、どんな依頼で起動するか**＋**具体トリガー・キーワード**。**日英ハイブリッド**（上記 §）。**手順の要約は書かない**（罠回避）。1024 文字以内。**短さより発火に必要なフレーズを優先**。
 - 一度きりのタスクや要件が頻繁に変わるものはスキル化しない（詳細は `references/skill-creator-and-official.md`）。
@@ -100,11 +100,12 @@ metadata:
 **スキャフォールドスクリプトを使う（トークン節約・推奨）**:
 
 ```bash
+# skill-builder を置いたディレクトリと、SKILLS_ROOT（§9・各製品の公式で確認）に読み替える
 # ドライラン（プレビュー確認。ファイルは作られない）
-node ~/.claude/skills/skill-builder/scripts/scaffold.mjs my-skill ~/.claude/skills --dry-run
+node <path-to>/skill-builder/scripts/scaffold.mjs my-skill <SKILLS_ROOT> --dry-run
 
 # 問題なければ --dry-run を外して実行
-node ~/.claude/skills/skill-builder/scripts/scaffold.mjs my-skill ~/.claude/skills
+node <path-to>/skill-builder/scripts/scaffold.mjs my-skill <SKILLS_ROOT>
 ```
 
 `--dry-run` でパス・SKILL.md の内容・既存衝突の有無を事前確認できる。確認後に再実行して `<skills-root>/<skill-name>/SKILL.md` を生成する。手動生成する場合は以下に従う。
@@ -128,17 +129,17 @@ node ~/.claude/skills/skill-builder/scripts/scaffold.mjs my-skill ~/.claude/skil
 - [ ] **（任意）** スキルあり・なしでツール回数や本文長の体感を比較
 - [ ] `## Troubleshooting` に **1〜3 件**（典型）あり、**`### エラー:` + 原因 + 対処** の形（`skill-folder-spec.md` §2.3）。追加項目は `references/` に集約
 - [ ] フォルダ構成が **SKILL.md → scripts/ → references/ → assets/** の意味で矛盾なく、`skill-folder-spec.md` §1 に合致
-- [ ] 配置先: ホストに合わせて `references/skill-folder-spec.md` **§9** を確認
+- [ ] 配置先: `references/skill-folder-spec.md` **§9**（SKILLS_ROOT）に合わせ、利用製品の公式を確認
 - [ ] **skill-growing** がある場合: 「分割判定」を 1 回実行
 
 ## グローバルかローカルか
 
 | スコープ | 用途 |
 |----------|------|
-| グローバル（`~/<host-root>/skills/<name>/`） | 全プロジェクトで使うスキル |
-| プロジェクト（`./<host-dir>/skills/<name>/`） | このプロジェクト専用のスキル |
+| ユーザー（グローバル）の SKILLS_ROOT | 全プロジェクトで使うスキル |
+| ワークスペース（プロジェクト）の SKILLS_ROOT | そのリポジトリ専用のスキル |
 
-ホスト別の実際のパスは `references/skill-folder-spec.md` **§9** を参照。ユーザーの許可を得てから、選んだパスにディレクトリと SKILL.md を作成する。
+具体的なパスは `references/skill-folder-spec.md` **§9**（一般形 **§9.1**、参考例 **§9.2**）。ユーザーの許可を得てから、選んだ SKILLS_ROOT 配下に `<name>/` と SKILL.md を作成する。
 
 複数スキルやプロンプトの配置を整理するときは **layer-skill-design** スキルを参照。
 
@@ -158,15 +159,15 @@ node ~/.claude/skills/skill-builder/scripts/scaffold.mjs my-skill ~/.claude/skil
 
 ### エラー: スキルが読み込まれない・参照先が無い
 
-**原因**: `~/.cursor/skills/<name>/` のフォルダ名と `SKILL.md` の `name` が不一致、または `references/` の相対パスが誤り。
+**原因**: `<SKILLS_ROOT>/<name>/` のフォルダ名と `SKILL.md` の `name` が不一致、または `references/` の相対パスが誤り。
 
 **対処**: フォルダ名と YAML の `name` を同一 kebab-case に揃える。`references/` へのリンクをスキル根からの相対パスで確認する。
 
 ### エラー: 手順どおりに反映されない
 
-**原因**: Cursor のバージョン差、または別ホスト（Claude Code / Antigravity）ではスキル配置パスが異なる。
+**原因**: 製品・バージョンにより SKILLS_ROOT や解釈ルールが異なる。
 
-**対処**: **skill-folder-spec.md** §9 でホスト別パスを確認する（**skill-builder** 内の `references/skill-folder-spec.md`）。
+**対処**: **skill-folder-spec.md** §9（§9.1 一般形、§9.2 参考例）と、利用中の製品の公式ドキュメントを確認する（**skill-builder** 内の `references/skill-folder-spec.md`）。
 
 ## 参照（公式）
 

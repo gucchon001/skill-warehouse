@@ -2,7 +2,7 @@
 name: skill-growing
 description: "既存スキルフォルダの修正・ブラッシュアップ（検証・置換・PD・分割・Troubleshooting・description 同期）。仕様は skill-builder の skill-folder-spec.md。Triggers: 修正して, 育てて, ブラッシュアップ, 見直して, 拡張して, skill-growing, refine skill, update skill, revise skill, improve skill, skill maintenance."
 metadata:
-  last_verified: "2026-04-03"
+  last_verified: "2026-04-05"
 ---
 
 # スキルを育てる（差分駆動・置換型ループ）
@@ -11,7 +11,7 @@ metadata:
 
 **1 スキル = 1 ディレクトリ**（標準ツリー: `SKILL.md` → `scripts/` → `references/` → `assets/`。不要なサブフォルダは作らない）。編集は **常にフォルダ根を単位**とし、**SKILL.md だけをバラで扱わない**。
 
-**正規仕様（各フォルダの役割・禁止・Troubleshooting の型・3 層・検証 3 観点・ホスト別配置・ルール同期）**: **skill-builder** をインストールしているホストでは必ず Read — `skill-builder/references/skill-folder-spec.md`（例: `~/.cursor/skills/...`、`~/.claude/skills/...` など**実際に skill-builder があるパス**）。一次情報: [公式 PDF](https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf)、[Agent Skills overview](https://docs.anthropic.com/en/docs/agents-and-tools/agent-skills/overview)。**発見補助・CLAUDE.md 対応・任意の強い禁止文など（公式必須ではない）**: `skill-builder/references/discovery-and-optional-patterns.md`。
+**正規仕様（各フォルダの役割・禁止・Troubleshooting の型・3 層・検証 3 観点・SKILLS_ROOT・ルール同期）**: **skill-builder** と併せて Read — `skill-builder/references/skill-folder-spec.md`（**skill-builder スキルフォルダの実パス**は環境依存。リポジトリ正本・`<SKILLS_ROOT>/skill-builder/` 等）。一次情報: [公式 PDF](https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf)、[Agent Skills overview](https://docs.anthropic.com/en/docs/agents-and-tools/agent-skills/overview)。**発見補助・プロジェクト指示ファイル対応・任意の強い禁止文など（公式必須ではない）**: `skill-builder/references/discovery-and-optional-patterns.md`。
 
 ### 育成時のフォルダ別ルール
 
@@ -39,9 +39,8 @@ metadata:
 **棚卸しスクリプトで全スキルを一括確認（トークン節約・推奨）**:
 
 ```bash
-node <skill-growing のパス>/scripts/audit.mjs [skills-dir]
-# 例（グローバル Claude Code）:
-node ~/.claude/skills/skill-growing/scripts/audit.mjs ~/.claude/skills
+node <path-to>/skill-growing/scripts/audit.mjs [skills-dir]
+# skills-dir は SKILLS_ROOT（skill-folder-spec §9）。例: 某製品のグローバル skills 親ディレクトリ
 ```
 
 出力の `!` 行が要対応スキル（stale / Troubleshooting 未設定 / description 未入力）。**個別スキルを Read する前にこの出力を見て優先順位を決める**。
@@ -76,15 +75,15 @@ node ~/.claude/skills/skill-growing/scripts/audit.mjs ~/.claude/skills
 
 ### エラー: スキルが読み込まれない・参照先が無い
 
-**原因**: `~/.cursor/skills/<name>/` のフォルダ名と `SKILL.md` の `name` が不一致、または `references/` の相対パスが誤り。
+**原因**: `<SKILLS_ROOT>/<name>/` のフォルダ名と `SKILL.md` の `name` が不一致、または `references/` の相対パスが誤り。
 
 **対処**: フォルダ名と YAML の `name` を同一 kebab-case に揃える。`references/` へのリンクをスキル根からの相対パスで確認する。
 
 ### エラー: 手順どおりに反映されない
 
-**原因**: Cursor のバージョン差、または別ホスト（Claude Code / Antigravity）ではスキル配置パスが異なる。
+**原因**: 製品・バージョンにより SKILLS_ROOT や解釈ルールが異なる。
 
-**対処**: **skill-folder-spec.md** §9 でホスト別パスを確認する（**skill-builder** 内の `references/skill-folder-spec.md`）。
+**対処**: **skill-folder-spec.md** §9（§9.1 一般形、§9.2 参考例）と、利用中の製品の公式ドキュメントを確認する（**skill-builder** 内の `references/skill-folder-spec.md`）。
 
 ---
 

@@ -9,7 +9,7 @@
 スキル化の前に把握する:
 
 1. **Purpose and scope**: どのタスク／ワークフローか
-2. **Target location**: 個人 `~/.cursor/skills/` か プロジェクト `.cursor/skills/` か
+2. **Target location**: ユーザー SKILLS_ROOT かワークスペース SKILLS_ROOT か（具体パスは **skill-folder-spec.md** §9）
 3. **Trigger scenarios**: エージェントがいつ自動適用すべきか
 4. **Key domain knowledge**: 特化して渡す知識
 5. **Output format**: テンプレ・体裁の必須
@@ -17,7 +17,7 @@
 
 会話から推測できる場合は確認を省略してよい。
 
-**禁止**: **`~/.cursor/skills-cursor/`** にユーザー用スキルを置かない（Cursor 組み込み用の予約領域）。
+**禁止**: 各製品が**予約・内部用**として文書化しているディレクトリに、ユーザー用スキルを置かない（例: 一部環境では `…/skills-cursor/` 等。**常に公式を確認**）。
 
 ---
 

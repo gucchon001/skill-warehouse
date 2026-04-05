@@ -1,6 +1,6 @@
 # ルール・スラッシュコマンド → スキル移行パス
 
-**旧スキル `migrate-locations` を統合。** 配置の正本は **skill-folder-spec.md** §9 と併せて参照する。
+**旧スキル `migrate-locations` を統合。** 一般形・SKILLS_ROOT は **skill-folder-spec.md** §9。**本ファイルのパス表は Cursor 系 CLI／IDE を想定した例**であり、他製品では §9 の SKILLS_ROOT に読み替える。
 
 ## 関連
 
@@ -9,7 +9,7 @@
 | **本ファイル** | 移行元・移行先パス一覧（プロジェクト / ユーザー） |
 | **cursor-rules** | ルールを**残す**ときの `.mdc`（形式・`alwaysApply` / `globs`・本文） |
 | **skill-builder** / **skill-growing** | 内容をベースに**新規スキル**を作る／育てる |
-| **skill-folder-spec.md** | 公式フォルダ構成・ホスト別パス |
+| **skill-folder-spec.md** | 公式フォルダ構成・SKILLS_ROOT・参考例 |
 
 ## パス一覧
 
@@ -27,7 +27,7 @@
 
 **原因**: グローバルとプロジェクトの取り違え、フォルダ名と `SKILL.md` の `name` の不一致、配置が `skills` 以外。
 
-**対処**: `~/.cursor/skills/<name>/` または `.cursor/skills/<name>/` を確認。**skill-folder-spec.md** §9 でホスト別パスを確認。
+**対処**: `<SKILLS_ROOT>/<name>/` を確認（Cursor 例: `~/.cursor/skills/` や `.cursor/skills/`）。**skill-folder-spec.md** §9 を参照。
 
 ### エラー: どこからどこへコピーすればよいか分からない
 

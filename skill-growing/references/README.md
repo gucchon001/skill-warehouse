@@ -8,7 +8,7 @@
 |----------|------|
 | [proposal-integrated.md](proposal-integrated.md) | 4モデル統合提案。設計思想・4軸診断・gws安定化・ロードマップ・証拠駆動の昇格ルール。SKILL.md の設計判断はここを入口にする |
 | [dialectic-3models-strict-integration.md](dialectic-3models-strict-integration.md) | 3モデル（Claude/GPT/Gemini）の妥協なき議論の結論。現 SKILL.md の「3制約・3トリガー」の直接的根拠 |
-| （別スキル）`skill-builder/references/skill-folder-spec.md`（skill-builder の実際の配置パス） | **フォルダ・各層・Troubleshooting 型・検証観点の厳密正本**＋**§9 ホスト別配置・§10 マルチホスト同期・ルール**（公式 PDF・Anthropic ドキュメントに整合）。育成・新規の両方で最優先 |
+| （別スキル）`skill-builder/references/skill-folder-spec.md`（skill-builder フォルダの実パスは環境依存） | **フォルダ・各層・Troubleshooting 型・検証観点の厳密正本**＋**§9 SKILLS_ROOT・§10 複数環境の同期・ルール**（公式 PDF・Anthropic ドキュメントに整合）。育成・新規の両方で最優先 |
 | （別スキル）`skill-builder/references/skill-creator-and-official.md`（skill-builder の実際の配置パス経由） | skill-folder-spec の補足（skill-creator 流れ・追加例） |
 
 ## 履歴（経緯の理解が必要な時に参照）

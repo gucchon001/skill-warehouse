@@ -2,7 +2,7 @@
 name: local-quality-gate
 description: "PR・push 前のローカル品質ゲートを固定順で実行（lint→typecheck→build→test）。失敗時は修正ループ（最大3回）。Triggers: quality gate, lint typecheck build, PR 前チェック, ローカル CI, pre-push."
 metadata:
-  last_verified: "2026-03-31"
+  last_verified: "2026-04-03"
 ---
 
 # local-quality-gate
@@ -16,10 +16,22 @@ metadata:
 
 ## 手順
 
-1. リポジトリルートで commands.template に従い 1→2→3→4 を実行。
-2. 失敗した段で止まり、ログを要約して修正。
-3. **最初の段からやり直す**。
-4. 全成功後に **code-review-subagents** や Git 操作へ（順序は **workflow-task-agent-ref-layers** や自プロジェクト WF で定義）。
+スクリプトで自動化（推奨）:
+
+```bash
+# リポジトリルートで実行。package.json のスクリプトを自動検出する
+node ~/.agent-skills/local-quality-gate/scripts/gate.mjs
+
+# オプション
+node gate.mjs --dry-run        # コマンドをプレビューのみ（実行しない）
+node gate.mjs --skip-build     # build をスキップ（型チェックのみ確認したいとき）
+node gate.mjs --max-loops 2    # 同一ステップの最大リトライ回数を変更（デフォルト: 3）
+node gate.mjs --pm pnpm        # パッケージマネージャを明示指定
+```
+
+手動で実行する場合は [references/commands.template.md](references/commands.template.md) に従い 1→2→3→4 を順に実行。
+
+失敗したら最初の段からやり直す。全成功後に **code-review-subagents** や Git 操作へ。
 
 ## 関連スキル
 

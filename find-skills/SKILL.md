@@ -2,7 +2,7 @@
 name: find-skills
 description: "Discovers the best Agent Skill for a task from natural language. Searches the user's global and project skill libraries (YAML descriptions), then optionally the public directory (skills.sh, npx skills find). Use when the user asks which skill to use, whether a skill exists for X, skill recommendations, or 「画像最適化のスキルはある？」style queries."
 metadata:
-  last_verified: "2026-03-31"
+  last_verified: "2026-04-05"
   version: "1.0.0"
 ---
 
@@ -51,6 +51,16 @@ Cursor では次の**両方**を対象にする（プロジェクト固有がグ
 - **推奨スキル 1 つ**＋**候補 2〜5 つ**（あれば）。
 - 各候補に **`name`（kebab-case）** と **フルパスまたは `~/.cursor/skills/<name>/`** を書き、`Read` で読むよう促す。
 - 公開案のみのときは **skills.sh のスラッグまたは GitHub URL** と **取得手順**（`npx skills add ...` 等）を書く。詳細は `references/ecosystem.md`。
+
+### 5. 定型タスクとグローバル固定候補（任意）
+
+| ユーザーが言いがちなこと | 先に Read するローカルスキル（グローバル） |
+|--------------------------|---------------------------------------------|
+| **新しいチャットする準備**・引き継ぎ・HANDOFF・スレッド切替 | **thread-handoff**（`~/.cursor/skills/thread-handoff/`。他ホストは skill-folder-spec §9） |
+| 仕様に沿って画面モックを先に、Jinja / HTMX | **spec-driven-mock-ui**（`~/.cursor/skills/spec-driven-mock-ui/`） |
+| ダッシュ・トップの情報順・ファーストビュー | **dashboard-first-view-ux** |
+| 新規 UI・スタイル・DESIGN.md | **frontend-design**（`~/.cursor/skills/frontend-design/`） |
+| 既存 UI をさっとチェック | **ui-frontend-patterns**（新規作り込みは **frontend-design**） |
 
 ## Troubleshooting
 

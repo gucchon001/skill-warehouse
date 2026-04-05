@@ -1,6 +1,6 @@
 # スキルフォルダ仕様（厳密版）
 
-出典を次に揃える。**矛盾する場合は公式 PDF を優先**し、Cursor 実装差は SKILL 本文で注記する。
+出典を次に揃える。**矛盾する場合は公式 PDF を優先**し、製品・バージョンによる実装差は各製品のドキュメントまたは SKILL 本文で注記する。
 
 - 公式 PDF: [The Complete Guide to Building Skills for Claude](https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf)
 - Anthropic ドキュメント（概要・ベストプラクティス）: [Agent Skills overview](https://docs.anthropic.com/en/docs/agents-and-tools/agent-skills/overview) など
